@@ -11,9 +11,10 @@ body{
 	@include background(linear-gradient(rgba(72,64,88,1), rgba(148,60,70,1), rgba(249,102,51,1)) left repeat);
 }
 
-h1{
+h1,h3{
 	font-family: 'clan', 'Karla', helvetica, sans-serif;
 	letter-spacing: 1px;
+	-webkit-font-smoothing: antialiased;
 }
 
 [ng-click],

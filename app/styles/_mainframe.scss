@@ -8,17 +8,7 @@
 	overflow: hidden;
   z-index: 3;
 
-  @-webkit-keyframes clouds{
-    0%{-webkit-transform:translateX(0px);}
-    100%{-webkit-transform:translateX(-1500px);}
-  }
-
-  @keyframes clouds{
-    0%{transform:translateX(0px);}
-    100%{transform:translateX(-1500px);}
-  }
-
-  @-webkit-keyframes spin{
+@-webkit-keyframes spin{
   0%{-webkit-transform:rotate(0deg);}
   100%{-webkit-transform:rotate(360deg);}
 }
@@ -28,30 +18,23 @@
   100%{transform:rotate(360deg);}
 }
 
+@-webkit-keyframes shake{
+  0%{@include transform(rotate(0deg,0deg));}
+  100%{@include transform(rotate(20deg,0deg));}
+}
 
-  .clouds{
-    position: absolute;
-    bottom:25%;
-    width:3000px;
-    height:800px;
-    z-index:1;
-    pointer-events:none;
-    // -webkit-animation:clouds 80s infinite linear;
-    //         animation:clouds 80s infinite linear;
-  }
+@keyframes shake{
+  0%{@include transform(rotate(0deg,0deg));}
+  100%{@include transform(rotate(20deg,0deg));}
+}
 
-  .clouds img{
-    position: relative;
-    float:left;
-    display: inline;
-    opacity: 1;
-  }
+
 
   .background{
     position: absolute;
     width: 100%;
     height: 420px;
-    bottom: -200px;
+    bottom: -250px;
     left: 0;
     text-align: center;
     z-index: 1;
@@ -116,7 +99,6 @@
     height:50%;
     position: absolute;
     top: 50%;
-    left: 0;
     @include transform(translate3d(0,-60%,0));
 
     li{
@@ -131,33 +113,31 @@
       vertical-align: top;
       box-sizing: border-box;
       color: white;
+      &:first-child{
+        margin-left: 3.3333333%;
+      }
+      &.full-album{
+         @include transition(transform .2s linear);
+        img{
+          max-width: 100%;
+          width: 100%;
+          box-shadow: 5px 5px 5px black;
+
+          @include animation(shake 1s linear);
+          @include animation-iteration-count(infinite);
+        }
+        &:hover{
+          @include transform(scale(1.05));
+        }
+      }
       .flip-container{
         @include perspective(1000);
         width: 100%;
         height: 100%;
         position: relative;
-        .progress-bar-background{
-          width: 90%;
-          height: 8px;
-          display: inline-block;
-          background-color: transparent;
-          border: 1px solid black;
-          z-index: 2;
-          position: absolute;
-          bottom: -20px;
-          left: 5%;
-        }
-        .progress-bar-interior{
-          display: inline-block;
-          width: 100%;
-          width: 0;
-          height: 8px;
-          background-color: black;
-          border: 1px solid black;
-          z-index: 1;
-          position: absolute;
-          bottom: -20px;
-          left: 5%;
+        @include transition(transform .2s linear);
+        &:hover{
+          @include transform(scale(1.05));
         }
         //add active class on click to trigger flip
         &.js--active, .flip-container.active{
@@ -211,7 +191,7 @@
           backface-visibility: hidden;
           position: absolute;
           border-radius: 10px;
-          color: black;
+          color: white;
           top: 0;
           left: 0;
           z-index: 1;
@@ -221,28 +201,34 @@
           text-transform: uppercase;
           @include transform(rotateY(0deg));
           text-align: center;
-          padding: 10px;
-          h3{
-            font-family: 'clan', helvetica, sans-serif;
-            font-size: 1em;
-            line-height: 0.9;
-            letter-spacing: 1px;
-            -webkit-font-smoothing: antialiased;
-            bottom: -80px;
+          .text-container{
             position: absolute;
-          }
-          p{
-            font-size: 1em;
-            font-family: 'clan', helvetica, sans-serif;
-            line-height: 1;
-            margin-top: 0;
-          }
-          h1{
-            font-size: 3em;
-            margin: 5px;
-            display: inline-block;
-            margin-top: 0;
-            -webkit-font-smoothing: antialiased;
+            @include display(flex);
+            @include flex-direction(column);
+            @include justify-content(center);
+            align-items: center;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 3px;
+            h3{
+              font-size: 1.5em;
+              line-height: 0.9;
+              color: black;
+              left: 0;
+              width: 90%;
+              height: auto;
+              padding: 0;
+              border-radius: 5px;
+              text-transform: none;
+              font-family: 'Daniel', 'Clan', arial, sans-serif;
+              i{
+                font-size: 1.5em;
+                margin: 0;
+              }
+            }
           }
         }
         .back{
@@ -250,17 +236,45 @@
           height: 100%;
           padding: 10px;
           z-index: 2;
+          color: black;
           @include transform(rotateY(180deg));
           text-align: center;
+          background-color: rgba(255,255,255,0.5);
+          border-radius: 3px;
+           .progress-bar-background{
+            width: 90%;
+            height: 8px;
+            display: inline-block;
+            background-color: transparent;
+            border: 1px solid white;
+            z-index: 2;
+            position: absolute;
+            bottom: 10px;
+            left: 5%;
+          }
+          .progress-bar-interior{
+            display: inline-block;
+            width: 100%;
+            width: 0;
+            height: 8px;
+            background-color: white;
+            border: 1px solid white;
+            z-index: 1;
+            position: absolute;
+            bottom: 10px;
+            left: 5%;
+          }
           a{
             color: black;
             text-decoration: none;
           }
           p{
-            font-size: 0.9em;
+            font-size: 1em;
+            font-family: 'Daniel', 'Karla', arial, sans-serif;
+            font-weight: bold;
           }
           i{
-            font-size: 3em;
+            font-size: 2em;
             margin: 5px;
             display: inline-block;
             margin-top: 20px;

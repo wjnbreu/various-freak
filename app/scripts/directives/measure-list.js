@@ -11,7 +11,6 @@
 angular.module('variousAssetsApp').directive('measureList', ['$rootScope', function ($rootScope) {
 
 
-	
 
 	//last list item measures total
 
@@ -38,10 +37,6 @@ angular.module('variousAssetsApp').directive('measureList', ['$rootScope', funct
 		$scope.listWidth = fullListWidth;
 		$rootScope.$broadcast('listWidth', $scope.listWidth);
 		
-		
-
-
-
 		
 		list.css({
 			width: fullListWidth + 'px'

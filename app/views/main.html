@@ -19,6 +19,11 @@
     <div current-position duration=0></div>
 
     <ul class="list-wrapper" id="list-wrapper">
+      <li class="full-album">
+        <a href="#amazonlink">
+          <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" />
+        </a>
+      </li>
 
       <li class="song-list" ng-repeat="track in tracks" ng-if="!$last" >
         <div class="flip-container" click-flip>
@@ -27,8 +32,9 @@
               <img src="images/cd_logo.png" />
             </div>
             <div class="front" ng-click="playSong(track.id)" shift-element>
-              <h1>{{$index + 1}}</h1>
-              <h3>{{track.title}}</h3>
+              <div class="text-container">
+                <h3>{{track.title}}</h3>
+              </div>
             </div>
             <div class="back">
               <i class="fa fa-pause pause-control" ng-show="globalSongPlaying" ng-click="pauseSong()"></i>

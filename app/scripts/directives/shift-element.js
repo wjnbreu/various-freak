@@ -71,8 +71,7 @@ angular.module('variousAssetsApp').directive('shiftElement', ['$window', '$rootS
 	};
 
 
-		
-
+	
 
 	return {
 		restrict: 'A',

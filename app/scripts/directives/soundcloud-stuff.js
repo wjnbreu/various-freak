@@ -123,6 +123,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 			
 			//after init, get all VA set songs
 			SC.get('/users/' + user_id + '/playlists/' + vaId, function(playlist){
+				console.log(playlist);
 				tracks = playlist.tracks;
 				$rootScope.$broadcast('tracksReady', tracks);
 				self.initPlayer();

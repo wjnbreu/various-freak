@@ -37,7 +37,6 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 
 			//we are scrolling right
 			if (scrollPos > lastScroll){
-				console.log('right');
 				//lower bound
 				if (scrollPos < 0){
 					scrollPos = 0;
@@ -58,7 +57,6 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 				},0, 'linear');
 			}
 			else{
-				console.log('left');
 
 				//lower bound
 				if (scrollPos < 0){
@@ -82,22 +80,15 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 			}
 			lastScroll = scrollPos;
 
-			console.log('Box: ' + boxPos, 'Scroll: ' + scrollPos);
 			
-			
-			
-			
-			
-
+		
 		});
 
 	};
 
 	//get target
 
-			
-			
-
+		
 
 	return {
 		scope: true,
