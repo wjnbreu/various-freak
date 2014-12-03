@@ -64,7 +64,8 @@ angular.module('variousAssetsApp').directive('shiftElement', ['$window', '$rootS
 
 			list.transition({
 				x: (boxPos - (offset - middle + halfWidth)),
-				y: '-60%'
+				y: '-60%',
+				z: 0
 			},1000, wrapElement);
 
 		});

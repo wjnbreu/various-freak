@@ -17,23 +17,31 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 	var maxWidth;
 	var lastScroll = 0;
 	var bufferSpace = 600;
+	var prefix;
+
+	
+	$rootScope.$on('listWidth', function(msg, data){
+			maxWidth = data;
+	});
+
 
 
 	var link = function($scope, element){
+		prefix = $scope.browser + 'transform';
 
-		$rootScope.$on('listWidth', function(msg, data){
-			maxWidth = data;
-		});
 
 		maxWidth = $scope.listWidth;
 
+
+		//TO-DO: MAKE GATE ON MOUSEWHEEL SO NOT FIRING LIKE CRAZY
 		element.mousewheel(function(event, delta){
 			event.preventDefault();
 			//get current pos of item
 			var box = item.getBoundingClientRect();
 			var boxPos = box.left;
 
-			scrollPos -= delta;
+			scrollPos -= Math.floor(delta);
+			console.log(scrollPos);
 
 			//we are scrolling right
 			if (scrollPos > lastScroll){
@@ -50,11 +58,6 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 				if (scrollPos > maxWidth - bufferSpace){
 					scrollPos = maxWidth - bufferSpace;
 				}
-
-				list.transition({
-					x: -scrollPos,
-					y: '-60%'
-				},0, 'linear');
 			}
 			else{
 
@@ -73,20 +76,24 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 					scrollPos = maxWidth - bufferSpace;
 				}
 
-				list.transition({
-					x: -scrollPos,
-					y: '-60%'
-				},0, 'linear');
+				
 			}
-			lastScroll = scrollPos;
 
 			
-		
+
+			lastScroll = scrollPos;
+			
+			//modified jquery.transit to allow 3d transforms
+			list.transition({
+				x: -scrollPos,
+				y: '-60%',
+				z: 0
+			},0, 'linear');
+
+			
 		});
 
 	};
-
-	//get target
 
 		
 

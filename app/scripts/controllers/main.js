@@ -11,13 +11,17 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 	'$scope',
 	'$sce',
 	'$rootScope',
-	function ($scope, $sce, $rootScope) {
+	'browserprefix',
+	function ($scope, $sce, $rootScope, browserprefix) {
 
 		//soundcloud id
 		$scope.client = '895ed2c967a25411c75f5bce576b11f5';
 
 		$scope.listWidth = 4000;
 		$scope.playlistId = '20083427';
+
+		$scope.browser = browserprefix.getPrefix();
+		console.log('Browser is: ' + $scope.browser);
 
 
 

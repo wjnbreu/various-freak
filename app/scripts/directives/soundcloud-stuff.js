@@ -44,7 +44,6 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 					//now scrub audio to location
 					//get ms of new location. turn percent back into decimal
 					var newLocation = self.duration * (scrubPercent / 100);
-					console.log(newLocation);
 					soundManager.setPosition(self.songObject.id, newLocation);
 
 
@@ -119,11 +118,10 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 			
 			//after init, get all VA set songs
 			SC.get('/users/' + user_id + '/playlists/' + playlistId, function(playlist){
-				console.log(playlist);
 				tracks = playlist.tracks;
 				$rootScope.$broadcast('tracksReady', tracks);
 				self.initPlayer();
-				console.log(tracks);
+				// console.log(tracks);
 			});
 		}
 	};
