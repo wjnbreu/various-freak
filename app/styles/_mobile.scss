@@ -1,0 +1,41 @@
+@include keyframes(randomshake){
+	0%{
+		@include transform(rotateY(0deg));
+	}
+	50%{
+		@include transform(rotateY(180deg));
+	}
+	100%{
+		@include transform(rotateY(0deg));
+	}
+}
+
+
+.mobile-frame{
+	display: none;
+	@media (max-width: $tab){
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow-y: scroll;
+		.mobile-grid{
+			position: relative;
+			width: 60%;
+			margin-left: 20%;
+			height: 70%;
+			margin-top: 15%;
+			@include transform(rotate(10deg));
+			// @include animation(randomshake 50s linear);
+			// @include animation-iteration-count(infinite);
+			// @include animation-direction(alternate);
+			iframe, object, embed{
+				width: 100% !important;
+				height: 90% !important;
+				box-shadow: 5px 5px 5px black;
+			}
+		}
+	}
+}
