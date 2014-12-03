@@ -170,12 +170,12 @@
           position: absolute;
           top: 0;
           left: 0;
-          @include transition(all 1s linear);
+          @include transition(all 2s linear);
           img{
             max-width: 100%;
           }
           &.js--active{
-            @include transform(translateY(600px));
+            @include transform(translateY(1500px));
             img{
               @include animation(spin 1s linear);
               @include animation-iteration-count(infinite);
