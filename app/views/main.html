@@ -47,33 +47,14 @@
           </div>
         </div>
       </li>
-      <!--diff condition on last-->
-<!--       <li class="song-list" ng-repeat="track in tracks" ng-if="$last" measure-list list-width="300" list-padding="300" index="{{$index}}">
-        <div class="flip-container" click-flip>
-          <div class="flipper">
-            <div class="cd-spin">
-              <img src="images/cd_logo.png" />
-            </div>
-            <div class="front" id="{{track.id}}" ng-click="playSong(track.id)" shift-element>
-              <h1>{{$index + 1}}</h1>
-              <h3>{{track.title}}</h3>
-            </div>
-            <div class="back">
-              <i class="fa fa-pause pause-control" ng-show="globalSongPlaying" ng-click="pauseSong()"></i>
-              <i class="fa fa-play play-control" ng-show="!globalSongPlaying" ng-click="resumeSong(track.id)"></i>
-              <a ng-href="{{download(track.download_url)}}" download target="self">
-                <i class="fa fa-cloud-download download-icon"></i>
-              </a>
-              <p>{{track.title}}</p>
-              <p>
-                <div class="progress-bar-background" ng-click="scrubAudio"></div>
-                <div class="progress-bar-interior" data-position="{{curentPosition}}" advance-progress></div>
-              </p>
-            </div>
-          </div>
-        </div>
-      </li> -->
     </ul>
   </section>
 </div>
+
+
+<!-- <div class="mobile-frame">
+  <section class="mobile-grid">
+    <iframe width="100%" height="450" scrolling="no" frameborder="no" ng-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/{{playlistId}}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+  </section>
+</div> -->
 

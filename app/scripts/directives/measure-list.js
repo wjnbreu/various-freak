@@ -21,8 +21,6 @@ angular.module('variousAssetsApp').directive('measureList', ['$rootScope', funct
 
 		//only measure on the last item so we can ensure we have full list
 		if ($scope.$last){
-			
-			console.log('called last');
 			$scope.listWidth = 0;
 
 			//get attrs and convert to num

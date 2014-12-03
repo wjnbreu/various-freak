@@ -12,7 +12,6 @@
 angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '$interval', '$timeout', function ($rootScope, $interval, $timeout) {
 
 	var user_id = '2270353';
-	var vaId = '20083427';
 	var tracks = [];
 	var currentSong;
 	var client_id = '895ed2c967a25411c75f5bce576b11f5';
@@ -47,9 +46,6 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 					var newLocation = self.duration * (scrubPercent / 100);
 					console.log(newLocation);
 					soundManager.setPosition(self.songObject.id, newLocation);
-
-
-
 
 
 				});
@@ -112,7 +108,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 
 
 
-		init: function(){
+		init: function(playlistId){
 			var self = this;
 			
 			
@@ -122,7 +118,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 
 			
 			//after init, get all VA set songs
-			SC.get('/users/' + user_id + '/playlists/' + vaId, function(playlist){
+			SC.get('/users/' + user_id + '/playlists/' + playlistId, function(playlist){
 				console.log(playlist);
 				tracks = playlist.tracks;
 				$rootScope.$broadcast('tracksReady', tracks);
@@ -149,7 +145,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 		$scope.songstatus = {};
 		
 		//set up soundcloud on element
-		player.init();
+		player.init($scope.playlistId);
 
 
 

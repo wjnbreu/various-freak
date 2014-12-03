@@ -17,6 +17,7 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 		$scope.client = '895ed2c967a25411c75f5bce576b11f5';
 
 		$scope.listWidth = 4000;
+		$scope.playlistId = '20083427';
 
 
 

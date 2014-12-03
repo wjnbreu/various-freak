@@ -18,6 +18,10 @@
   background-size: contain;
 	overflow: hidden;
   z-index: 3;
+  @media (max-width: $tab){
+    display: none;
+  }
+
 
 
   .background{
