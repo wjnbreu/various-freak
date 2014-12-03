@@ -172,10 +172,10 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 					},500);
 					
 
-					//make sure to get currentlocation of song every few seconds
+					// //make sure to get currentlocation of song every few seconds
 					progressCheck = $interval(function(){
 						$scope.currentPosition = currentPosition;
-					},1000);
+					},100);
 
 					player.setupScrubber();
 
@@ -196,7 +196,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 					//make sure to get currentlocation of song every few seconds
 					progressCheck = $interval(function(){
 						$scope.currentPosition = currentPosition;
-					},700);
+					},100);
 
 					player.setupScrubber();
 				}

@@ -18,30 +18,35 @@ angular.module('variousAssetsApp').directive('measureList', ['$rootScope', funct
 
 
 	var link = function($scope, element, attrs){
-		$scope.listWidth = 0;
 
-		//get attrs and convert to num
-		var listWidth = parseInt(attrs.listWidth, 10);
-		var listPadding = parseInt(attrs.listPadding, 10);
-		var index = parseInt(attrs.index, 10);
+		//only measure on the last item so we can ensure we have full list
+		if ($scope.$last){
+			
+			console.log('called last');
+			$scope.listWidth = 0;
 
-		var fullWidth = listWidth + listPadding;
+			//get attrs and convert to num
+			var listWidth = parseInt(attrs.listWidth, 10);
+			var listPadding = parseInt(attrs.listPadding, 10);
+			var index = parseInt(attrs.index, 10);
 
-		//since last item is not indluced in index, add one
-		var fullListWidth = fullWidth * (index + 1);
+			var fullWidth = listWidth + listPadding;
 
-		console.log(fullListWidth);
+			//since last item is not indluced in index, add one
+			var fullListWidth = fullWidth * (index + 1);
 
-		
-		
-		$scope.listWidth = fullListWidth;
-		$rootScope.$broadcast('listWidth', $scope.listWidth);
-		
-		
-		list.css({
-			width: fullListWidth + 'px'
-		});
+			console.log(fullListWidth);
 
+			
+			
+			$scope.listWidth = fullListWidth;
+			$rootScope.$broadcast('listWidth', $scope.listWidth);
+			
+			
+			list.css({
+				width: fullListWidth + 'px'
+			});
+		}
 	};
 
 

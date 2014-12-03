@@ -9,14 +9,9 @@
       <img src="images/cdj.png" />
     </div>
   </section>
-<!--   <section class="background-spin">
-    <div class="disc-spin">
-      <img src="images/cdj.gif" />
-    </div>
-  </section> -->
+
 
   <section class="grid" soundcloud-stuff>
-    <div current-position duration=0></div>
 
     <ul class="list-wrapper" id="list-wrapper">
       <li class="full-album">
@@ -25,7 +20,7 @@
         </a>
       </li>
 
-      <li class="song-list" ng-repeat="track in tracks" ng-if="!$last" >
+      <li class="song-list" ng-repeat="track in tracks" measure-list list-width="300" list-padding="300" index="{{$index}}">
         <div class="flip-container" click-flip>
           <div class="flipper">
             <div class="cd-spin">
@@ -33,6 +28,7 @@
             </div>
             <div class="front" ng-click="playSong(track.id)" shift-element>
               <div class="text-container">
+                <h3>{{$index + 1}}</h3>
                 <h3>{{track.title}}</h3>
               </div>
             </div>
@@ -52,7 +48,7 @@
         </div>
       </li>
       <!--diff condition on last-->
-      <li class="song-list" ng-repeat="track in tracks" ng-if="$last" measure-list list-width="300" list-padding="300" index="{{$index}}">
+<!--       <li class="song-list" ng-repeat="track in tracks" ng-if="$last" measure-list list-width="300" list-padding="300" index="{{$index}}">
         <div class="flip-container" click-flip>
           <div class="flipper">
             <div class="cd-spin">
@@ -76,7 +72,7 @@
             </div>
           </div>
         </div>
-      </li>
+      </li> -->
     </ul>
   </section>
 </div>

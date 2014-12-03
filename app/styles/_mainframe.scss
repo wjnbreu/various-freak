@@ -1,13 +1,3 @@
-.main-frame{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-  background-size: contain;
-	overflow: hidden;
-  z-index: 3;
-
 @-webkit-keyframes spin{
   0%{-webkit-transform:rotate(0deg);}
   100%{-webkit-transform:rotate(360deg);}
@@ -18,16 +8,16 @@
   100%{transform:rotate(360deg);}
 }
 
-@-webkit-keyframes shake{
-  0%{@include transform(rotate(0deg,0deg));}
-  100%{@include transform(rotate(20deg,0deg));}
-}
 
-@keyframes shake{
-  0%{@include transform(rotate(0deg,0deg));}
-  100%{@include transform(rotate(20deg,0deg));}
-}
-
+.main-frame{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  background-size: contain;
+	overflow: hidden;
+  z-index: 3;
 
 
   .background{
@@ -214,7 +204,7 @@
             background-color: rgba(255,255,255,0.5);
             border-radius: 3px;
             h3{
-              font-size: 1.5em;
+              font-size: 1.25em;
               line-height: 0.9;
               color: black;
               left: 0;

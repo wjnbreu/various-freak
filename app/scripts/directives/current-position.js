@@ -20,6 +20,7 @@ angular.module('variousAssetsApp').directive('currentPosition', ['$interval', fu
 		$scope.$watch('songDuration', function(value){
 			duration = value;
 			attrs.duration = duration;
+			console.log(duration);
 		});		
 	};
 

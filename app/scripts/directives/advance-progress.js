@@ -32,13 +32,13 @@ angular.module('variousAssetsApp').directive('advanceProgress', ['$interval', '$
 					width: progressPercent + '%'
 				});
 
-			},500);
+			},100);
 		});
 
 		$rootScope.$on('songEnded', function(){
 			element.css({
 				width: 0
-			}, 500);
+			}, 100);
 		});
 		
 	};
