@@ -80,15 +80,19 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 			}
 
 			
-
-			lastScroll = scrollPos;
-			
-			//modified jquery.transit to allow 3d transforms
+			if (-scrollPos > 3 || -scrollPos < -3){
+				//modified jquery.transit to allow 3d transforms
 			list.transition({
 				x: -scrollPos,
 				y: 0,
 				z: 0
 			},0, 'linear');
+			}
+			
+			
+			
+
+			lastScroll = scrollPos;
 
 			
 		});
