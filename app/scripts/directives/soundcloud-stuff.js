@@ -76,11 +76,11 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 					},
 					onfinish: function(){
 						currentPosition = 0;
-						$rootScope.$broadcast('songEnded');
+						$rootScope.$emit('songEnded');
 					}
 				});
 				soundManager.play(self.songObject.id);
-				$rootScope.$broadcast('songStarted');
+				$rootScope.$emit('songStarted');
 				
 			});
 		},
@@ -119,7 +119,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 			//after init, get all VA set songs
 			SC.get('/users/' + user_id + '/playlists/' + playlistId, function(playlist){
 				tracks = playlist.tracks;
-				$rootScope.$broadcast('tracksReady', tracks);
+				$rootScope.$emit('tracksReady', tracks);
 				self.initPlayer();
 				// console.log(tracks);
 			});
@@ -150,41 +150,12 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 		//when songs are in, grab data
 		$rootScope.$on('tracksReady', function(msg, data){
 			
-			
 
 
 			$scope.tracks = data;
 
 			
-			
-			//bind play button to track ids
-			$scope.playSong = function(songId){
-				//if any songs are playing, kill them
-				soundManager.stopAll();
-				$scope.globalSongPlaying = false;
-
-				$scope.current.trackId = songId;
-
-				//wait for animationt to finish
-				$rootScope.$on('animOver', function(){
-					$timeout(function(){
-						player.playSong(songId);
-						$scope.globalSongPlaying = true;
-					},500);
-					
-
-					// //make sure to get currentlocation of song every few seconds
-					progressCheck = $interval(function(){
-						$scope.currentPosition = currentPosition;
-					},100);
-
-					//enables play pause button for first time
-					$scope.loadedFirstSong = true;
-
-					player.setupScrubber();
-
-				});
-			};
+		
 
 			$scope.playPauseSong = function(){
 				if ($scope.globalSongPlaying && !$scope.ended){
@@ -207,22 +178,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 				$scope.globalSongPlaying = false;
 			};
 
-			$scope.resumeSong = function(songId){
-				if (!$scope.ended){
-					player.resumeSong();
-				}
-				else{
-					player.playSong(songId);
-					//make sure to get currentlocation of song every few seconds
-					progressCheck = $interval(function(){
-						$scope.currentPosition = currentPosition;
-					},100);
-
-					player.setupScrubber();
-				}
-				
-				$scope.globalSongPlaying = true;
-			};
+			
 
 		});
 
@@ -244,6 +200,65 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 
 	return {
 		restrict: 'A',
-		link: link
+		link: link,
+		controller: function($scope, $rootScope){
+
+			var self = this;
+			
+			//api object
+			$scope.player = {};
+			
+			$rootScope.$on('tracksReady', function(){
+				self.playSong = function(songId){
+					//if any songs are playing, kill them
+					soundManager.stopAll();
+					$scope.globalSongPlaying = false;
+
+					$scope.current.trackId = songId;
+
+					player.playSong(songId);
+					$scope.globalSongPlaying = true;
+
+					//make sure we count the first song as loaded for a flag
+					$scope.loadedFirstSong = true;
+				};
+
+				self.playPauseSong = function(){
+					if ($scope.globalSongPlaying && !$scope.ended){
+						player.pauseSong();
+						$scope.globalSongPlaying = false;
+
+					}
+
+					else if (!$scope.globalSongPlaying && !$scope.ended){
+						if ($scope.loadedFirstSong){
+							player.resumeSong();
+							$scope.globalSongPlaying = true;
+						}
+					}
+
+				};
+
+
+				self.resumeSong = function(songId){
+					if (!$scope.ended){
+						player.resumeSong();
+					}
+					else{
+						player.playSong(songId);
+						//make sure to get currentlocation of song every few seconds
+						progressCheck = $interval(function(){
+							$scope.currentPosition = currentPosition;
+						},100);
+
+						player.setupScrubber();
+					}
+					
+					$scope.globalSongPlaying = true;
+				};
+
+			});
+		}
+
 	};
 }]);

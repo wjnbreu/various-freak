@@ -30,7 +30,15 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 		$scope.playlistId = '20083427';
 
 		$scope.browser = browserprefix.getPrefix();
-		console.log('Browser is: ' + $scope.browser);
+
+
+		//cache play methods
+
+		$scope.$watch('playSong', function(newv, old){
+			console.log(newv);
+		});
+
+
 
 
 

@@ -18,7 +18,7 @@
 
   <!-- TO-DO: Add AWS download link -->
 
-  <section class="background" drop-zone>
+  <section class="background" drop-zone soundcloud-stuff>
     <div class="button-area" ng-click="playPauseSong()"></div>
     <div class="discman">
       <img src="images/cdj.png" ng-show="!globalSongPlaying"/>
@@ -27,7 +27,7 @@
   </section>
 
 
-  <section class="grid" id="grid" soundcloud-stuff>
+  <section class="grid" id="grid">
 
     <ul class="list-wrapper" id="list-wrapper">
       <li class="full-album">
@@ -38,7 +38,8 @@
 
       <li class="song-list" ng-repeat="track in tracks" measure-list list-width="275" list-padding="300" index="{{$index}}">
         <div class="flip-container" click-flip >
-          <div class="flipper" draggable>
+          <!--pass in song id as id to drop zone-->
+          <div class="flipper" draggable id="{{track.id}}">
             <div class="cd-spin">
               <img src="images/cd_logo.png" />
             </div>
@@ -48,18 +49,6 @@
                 <h3>{{$index + 1}}</h3>
                 <h3>{{track.title}}</h3>
               </div>
-            </div>
-            <div class="back">
-             <!--  <i class="fa fa-pause pause-control" ng-show="globalSongPlaying" ng-click="pauseSong()"></i>
-              <i class="fa fa-play play-control" ng-show="!globalSongPlaying" ng-click="resumeSong(track.id)"></i> -->
-              <a ng-href="{{download(track.download_url)}}" download target="self">
-                <i class="fa fa-cloud-download download-icon"></i>
-              </a>
-              <p>{{track.title}}</p>
-              <p>
-                <div class="progress-bar-background" ng-click="scrubAudio"></div>
-                <div class="progress-bar-interior" data-position="{{curentPosition}}" advance-progress></div>
-              </p>
             </div>
           </div>
         </div>
