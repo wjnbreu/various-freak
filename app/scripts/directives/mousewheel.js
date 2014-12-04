@@ -18,6 +18,8 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 	var lastScroll = 0;
 	var bufferSpace = 600;
 	var prefix;
+	var box = item.getBoundingClientRect();
+	var boxPos = box.left;
 
 	
 	$rootScope.$on('listWidth', function(msg, data){
@@ -27,21 +29,23 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 
 
 	var link = function($scope, element){
+
 		prefix = $scope.browser + 'transform';
-
-
+		
 		maxWidth = $scope.listWidth;
 
 
 		//TO-DO: MAKE GATE ON MOUSEWHEEL SO NOT FIRING LIKE CRAZY
 		element.mousewheel(function(event, delta){
 			event.preventDefault();
+			
 			//get current pos of item
-			var box = item.getBoundingClientRect();
-			var boxPos = box.left;
+			box = item.getBoundingClientRect();
+			boxPos = box.left;
+			
 
 			scrollPos -= Math.floor(delta);
-			console.log(scrollPos);
+			console.log(boxPos);
 
 			//we are scrolling right
 			if (scrollPos > lastScroll){
@@ -89,13 +93,11 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 			},0, 'linear');
 			}
 			
-			
-			
 
 			lastScroll = scrollPos;
-
 			
 		});
+		
 
 	};
 

@@ -9,8 +9,10 @@
 angular.module('variousAssetsApp').directive('draggable', function () {
 
 
-	var link = function($scope, element){
-		element.draggable({axis: 'x'});
+	var link = function($scope, element, attrs){
+		element.draggable({
+			addClasses: false
+		});
 	}
 
 	return {

@@ -18,7 +18,7 @@
 
   <!-- TO-DO: Add AWS download link -->
 
-  <section class="background">
+  <section class="background" drop-zone>
     <div class="button-area" ng-click="playPauseSong()"></div>
     <div class="discman">
       <img src="images/cdj.png" ng-show="!globalSongPlaying"/>
@@ -37,12 +37,13 @@
       </li>
 
       <li class="song-list" ng-repeat="track in tracks" measure-list list-width="275" list-padding="300" index="{{$index}}">
-        <div class="flip-container" click-flip>
-          <div class="flipper">
+        <div class="flip-container" click-flip >
+          <div class="flipper" draggable>
             <div class="cd-spin">
               <img src="images/cd_logo.png" />
             </div>
-            <div class="front" ng-click="playSong(track.id)" shift-element>
+            <!-- ng-click="playSong(track.id)" goes here , so does shift-element directive -->
+            <div class="front">
               <div class="text-container">
                 <h3>{{$index + 1}}</h3>
                 <h3>{{track.title}}</h3>
