@@ -19,8 +19,10 @@
   <!-- TO-DO: Add AWS download link -->
 
   <section class="background">
+    <div class="button-area" ng-click="playPauseSong()"></div>
     <div class="discman">
-      <img src="images/cdj.png" />
+      <img src="images/cdj.png" ng-show="!globalSongPlaying"/>
+      <img src="images/cdj-play.png" ng-show="globalSongPlaying"/>
     </div>
   </section>
 
@@ -47,8 +49,8 @@
               </div>
             </div>
             <div class="back">
-              <i class="fa fa-pause pause-control" ng-show="globalSongPlaying" ng-click="pauseSong()"></i>
-              <i class="fa fa-play play-control" ng-show="!globalSongPlaying" ng-click="resumeSong(track.id)"></i>
+             <!--  <i class="fa fa-pause pause-control" ng-show="globalSongPlaying" ng-click="pauseSong()"></i>
+              <i class="fa fa-play play-control" ng-show="!globalSongPlaying" ng-click="resumeSong(track.id)"></i> -->
               <a ng-href="{{download(track.download_url)}}" download target="self">
                 <i class="fa fa-cloud-download download-icon"></i>
               </a>
@@ -71,4 +73,10 @@
     <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/20083427&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
   </section>
 </div>
+
+<footer>
+  <div class="instructions">
+    <p>Scroll to advance</p>
+  </div>
+</footer>
 

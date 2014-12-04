@@ -17,6 +17,12 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 		//used for spinner
 		$scope.ready = false;
 
+		//holds current play state
+		$scope.current = {};
+
+		//enables play pause for first time
+		$scope.loadedFirstSong = false;
+
 		//soundcloud id
 		$scope.client = '895ed2c967a25411c75f5bce576b11f5';
 

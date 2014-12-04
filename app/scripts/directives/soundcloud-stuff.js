@@ -141,8 +141,6 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 		$scope.globalSongPlaying = false;
 
 		$scope.songstatus = {};
-
-		$scope.ready = true;
 		
 		//set up soundcloud on element
 		player.init($scope.playlistId);
@@ -165,6 +163,8 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 				soundManager.stopAll();
 				$scope.globalSongPlaying = false;
 
+				$scope.current.trackId = songId;
+
 				//wait for animationt to finish
 				$rootScope.$on('animOver', function(){
 					$timeout(function(){
@@ -178,9 +178,28 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 						$scope.currentPosition = currentPosition;
 					},100);
 
+					//enables play pause button for first time
+					$scope.loadedFirstSong = true;
+
 					player.setupScrubber();
 
 				});
+			};
+
+			$scope.playPauseSong = function(){
+				if ($scope.globalSongPlaying && !$scope.ended){
+					player.pauseSong();
+					$scope.globalSongPlaying = false;
+
+				}
+
+				else if (!$scope.globalSongPlaying && !$scope.ended){
+					if ($scope.loadedFirstSong){
+						player.resumeSong();
+						$scope.globalSongPlaying = true;
+					}
+				}
+
 			};
 
 			$scope.pauseSong = function(){

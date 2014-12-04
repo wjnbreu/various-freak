@@ -28,7 +28,7 @@ h1,h3{
 #big-cursor{
 	z-index: 9;
     position: absolute;
-    width: 800px;
+    width: 400px;
     min-height: 80px;
     overflow: hidden;
     overflow-x: hidden;
@@ -37,7 +37,6 @@ h1,h3{
     img{
         max-width: 100%;
         z-index: 99999;
-        opacity: 0.98;
     }
 }
 
