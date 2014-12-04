@@ -141,6 +141,8 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 		$scope.globalSongPlaying = false;
 
 		$scope.songstatus = {};
+
+		$scope.ready = true;
 		
 		//set up soundcloud on element
 		player.init($scope.playlistId);
@@ -150,7 +152,12 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 		//when songs are in, grab data
 		$rootScope.$on('tracksReady', function(msg, data){
 			
+			
+
+
 			$scope.tracks = data;
+
+			
 			
 			//bind play button to track ids
 			$scope.playSong = function(songId){

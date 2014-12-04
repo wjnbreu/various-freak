@@ -9,6 +9,7 @@ body{
 	font-family: 'Karla', helvetica, sans-serif;
 	font-size: 16px;
 	@include background(linear-gradient(rgba(72,64,88,1), rgba(148,60,70,1), rgba(249,102,51,1)) left repeat);
+	background-size: cover;
 }
 
 h1,h3{
@@ -22,3 +23,21 @@ h1,h3{
 [x-ng-click] {
     cursor: pointer !important;
 }
+
+
+#big-cursor{
+	z-index: 9;
+    position: absolute;
+    width: 800px;
+    min-height: 80px;
+    overflow: hidden;
+    overflow-x: hidden;
+    opacity: 1;
+
+    img{
+        max-width: 100%;
+        z-index: 99999;
+        opacity: 0.98;
+    }
+}
+

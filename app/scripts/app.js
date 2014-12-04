@@ -22,10 +22,6 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/:songId', {
-        templateUrl: 'views/song.html',
-        controller: 'SongCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });

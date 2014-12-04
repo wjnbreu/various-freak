@@ -86,7 +86,7 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 			//modified jquery.transit to allow 3d transforms
 			list.transition({
 				x: -scrollPos,
-				y: '-60%',
+				y: 0,
 				z: 0
 			},0, 'linear');
 

@@ -14,6 +14,9 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 	'browserprefix',
 	function ($scope, $sce, $rootScope, browserprefix) {
 
+		//used for spinner
+		$scope.ready = false;
+
 		//soundcloud id
 		$scope.client = '895ed2c967a25411c75f5bce576b11f5';
 
@@ -52,6 +55,8 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 
 				//now add new size
 				$scope.tracks.artwork = $scope.tracks.artwork + 't500x500.jpg';
+
+				$scope.ready = true;
 
 			});
 		});
