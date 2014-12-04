@@ -32,11 +32,7 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 		$scope.browser = browserprefix.getPrefix();
 
 
-		//cache play methods
-
-		$scope.$watch('playSong', function(newv, old){
-			console.log(newv);
-		});
+		
 
 
 

@@ -8,6 +8,9 @@
  */
 angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function ($rootScope) {
 
+	var cds = $('.cd-spin');
+
+
 	var link = function($scope, element, attrs, soundcloudStuffCtrl){
 
 		if ($scope.ready){
@@ -26,18 +29,23 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function
 				//grab song id from id of element
 				var songId = disc.attr('id');
 
+				var playingItem = $('#' + songId);
+				playingItem.find('.cd-spin').addClass('currently-playing');
 				
 				//use soundcloud directive api
 				soundcloudStuffCtrl.playSong(songId);
+				$scope.globalSongPlaying = true;
 
-				$('.cd-spin').each(function(){
-					$(this).transition({
-						y: 0
-					},0);
-				})
+				// cds.each(function(){
+				// 	if (!$(this).hasClass('currently-playing')){
+				// 		$(this).transition({
+				// 			y: 0
+				// 		},0)
+				// 	}
+				// });
 
 				//make sure element is totally offscreen
-				$('#' + songId).find('.cd-spin').transition({
+				playingItem.find('.cd-spin').transition({
 					y: '-2000px'
 				},2000);
 

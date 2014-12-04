@@ -8,12 +8,13 @@
  */
 angular.module('variousAssetsApp').directive('draggable', function () {
 
+	
 
 	var link = function($scope, element, attrs){
 
 		var cdTarget = element.find('.cd-spin');
 
-
+		var cds = $('.cd-spin');
 
 		element.draggable({
 			addClasses: false,
@@ -22,7 +23,16 @@ angular.module('variousAssetsApp').directive('draggable', function () {
 			helper: function(event, ui){
 				return cdTarget;
 			}
-		}).data('yo', 'yo dawg');
+			//remove all currently playing classes to prep for cd reset
+			// start: function(event, ui){
+			// 	console.log('dragstart');
+			// 	cds.each(function(){
+			// 		if ($(this).hasClass('currently-playing')){
+			// 			$(this).removeClass('currently-playing');
+			// 		}
+			// 	});
+			// }
+		});
 	}
 
 	return {

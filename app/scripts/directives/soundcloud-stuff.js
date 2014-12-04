@@ -76,11 +76,12 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 					},
 					onfinish: function(){
 						currentPosition = 0;
-						$rootScope.$emit('songEnded');
+						$rootScope.$broadcast('songEnded');
 					}
 				});
 				soundManager.play(self.songObject.id);
-				$rootScope.$emit('songStarted');
+				
+				$rootScope.$broadcast('songStarted');
 				
 			});
 		},
@@ -119,7 +120,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 			//after init, get all VA set songs
 			SC.get('/users/' + user_id + '/playlists/' + playlistId, function(playlist){
 				tracks = playlist.tracks;
-				$rootScope.$emit('tracksReady', tracks);
+				$rootScope.$broadcast('tracksReady', tracks);
 				self.initPlayer();
 				// console.log(tracks);
 			});
@@ -130,9 +131,6 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 
 
 	var link = function($scope){
-
-		//setInterval variable
-		var progressCheck;
 
 		$scope.currentPosition = 0;
 		$scope.songDuration = 0;
@@ -149,36 +147,8 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 
 		//when songs are in, grab data
 		$rootScope.$on('tracksReady', function(msg, data){
-			
-
 
 			$scope.tracks = data;
-
-			
-		
-
-			$scope.playPauseSong = function(){
-				if ($scope.globalSongPlaying && !$scope.ended){
-					player.pauseSong();
-					$scope.globalSongPlaying = false;
-
-				}
-
-				else if (!$scope.globalSongPlaying && !$scope.ended){
-					if ($scope.loadedFirstSong){
-						player.resumeSong();
-						$scope.globalSongPlaying = true;
-					}
-				}
-
-			};
-
-			$scope.pauseSong = function(){
-				player.pauseSong();
-				$scope.globalSongPlaying = false;
-			};
-
-			
 
 		});
 
@@ -207,8 +177,12 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 			
 			//api object
 			$scope.player = {};
+
+			$scope.globalSongPlaying = false;
 			
 			$rootScope.$on('tracksReady', function(){
+				
+				//expose methods
 				self.playSong = function(songId){
 					//if any songs are playing, kill them
 					soundManager.stopAll();
@@ -224,13 +198,13 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 				};
 
 				self.playPauseSong = function(){
-					if ($scope.globalSongPlaying && !$scope.ended){
+					if ($scope.globalSongPlaying){
 						player.pauseSong();
 						$scope.globalSongPlaying = false;
 
 					}
 
-					else if (!$scope.globalSongPlaying && !$scope.ended){
+					else if (!$scope.globalSongPlaying){
 						if ($scope.loadedFirstSong){
 							player.resumeSong();
 							$scope.globalSongPlaying = true;
@@ -238,7 +212,6 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 					}
 
 				};
-
 
 				self.resumeSong = function(songId){
 					if (!$scope.ended){
