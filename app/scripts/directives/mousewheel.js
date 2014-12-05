@@ -45,7 +45,6 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 			
 
 			scrollPos -= Math.floor(delta);
-			console.log(boxPos);
 
 			//we are scrolling right
 			if (scrollPos > lastScroll){

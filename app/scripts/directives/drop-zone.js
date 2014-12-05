@@ -8,8 +8,8 @@
  */
 angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function ($rootScope) {
 
-	var cds = $('.cd-spin');
-
+	
+	var cds;
 
 	var link = function($scope, element, attrs, soundcloudStuffCtrl){
 
@@ -23,6 +23,9 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function
 			tolerance: 'touch',
 			hoverClass: 'ui-state-highlight',
 			drop: function(event, ui){
+
+				//only instantiating variable once everything is ready (otherwise, we only have one)
+				cds = $('.cd-spin');
 
 				//cancels disappearing cd bug
 				$.ui.ddmanager.current.cancelHelperRemoval = true;
@@ -40,18 +43,28 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function
 				soundcloudStuffCtrl.playSong(songId);
 				$scope.globalSongPlaying = true;
 
-				// cds.each(function(){
-				// 	if (!$(this).hasClass('currently-playing')){
-				// 		$(this).transition({
-				// 			y: 0
-				// 		},0)
-				// 	}
-				// });
+				var bringCDsBack = function(){
+					cds.each(function(){
+						var t = $(this);
+						if (t.hasClass('currently-playing')){
+							//if target is currently in player, do nothing
+							if (t.parent().is('#' + songId)){
+								return;
+							}
+							else{
+								t.removeClass('currently-playing');
+								t.transition({
+									y: 0
+								},760);
+							}	
+						}
+					});
+				};
 
 				//make sure element is totally offscreen
 				playingItem.find('.cd-spin').transition({
 					y: '-2000px'
-				},2000);
+				},2000, bringCDsBack());
 
 			}
 		});
