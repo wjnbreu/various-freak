@@ -7,7 +7,7 @@
  * @description
  * # mousewheel
  */
-angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', function ($rootScope) {
+angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
 
 
 
@@ -27,6 +27,9 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 	});
 
 
+	var bounceFlag = false;
+
+
 
 	var link = function($scope, element){
 
@@ -35,7 +38,19 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 		maxWidth = $scope.listWidth;
 
 
-		//TO-DO: MAKE GATE ON MOUSEWHEEL SO NOT FIRING LIKE CRAZY
+		
+
+
+		var runBounce = function(target){
+			if (bounceFlag === false){
+				setTimout(function(){
+				},1000);
+
+			}
+			
+		};
+		
+
 		element.mousewheel(function(event){
 			event.preventDefault();
 			

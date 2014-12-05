@@ -141,7 +141,7 @@
         position: relative;
         @include transition(transform .2s linear);
         &:hover{
-          @include transform(scale(1.05) rotate(-10deg));
+          @include transform(scale(1.05) rotate(-5deg));
           cursor: none;
         }
         //add active class on click to trigger flip
@@ -204,7 +204,6 @@
         .front{
           z-index: 3;
           text-transform: uppercase;
-          @include transform(rotate(5deg));
           text-align: center;
           .text-container{
             position: absolute;
@@ -218,6 +217,7 @@
             min-height: 100%;
             background-color: rgba(255,255,255,0.5);
             border-radius: 3px;
+            @include user-select(none);
             a{
               i{
                 color: black;
