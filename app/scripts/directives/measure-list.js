@@ -32,10 +32,7 @@ angular.module('variousAssetsApp').directive('measureList', ['$rootScope', funct
 
 			//since last item is not indluced in index, add one
 			var fullListWidth = fullWidth * (index + 1);
-
-			console.log(fullListWidth);
-
-			
+	
 			
 			$scope.listWidth = fullListWidth;
 			$rootScope.$broadcast('listWidth', $scope.listWidth);

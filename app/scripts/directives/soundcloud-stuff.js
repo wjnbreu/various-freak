@@ -68,7 +68,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 					url: self.songObject.stream_url + '?client_id=' + client_id,
 					id: self.songObject.id,
 					//just for dev
-					volume: 1,
+					// volume: 1,
 					//used for progress bar
 					whileplaying: function(){
 						currentPosition = this.position;
@@ -176,22 +176,14 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 
 
 		$rootScope.$on('songStarted', function(){
+			
 			$scope.ended = false;
+			
 			//get duration of entire song
 			$scope.songDuration = player.duration;
 			$scope.globalSongPlaying = true;
-			console.log('Song started');
 		});
 
-		$rootScope.$on('songResumed', function(){
-			$scope.globalSongPlaying = true;
-			console.log('Song resuemd');
-		});
-
-		$rootScope.$on('songPaused', function(){
-			$scope.globalSongPlaying = false;
-			console.log('song paused');
-		});
 
 		//if song is over, clear interval
 		$rootScope.$on('songEnded', function(){

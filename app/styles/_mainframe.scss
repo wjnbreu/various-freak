@@ -45,7 +45,11 @@
       background: transparent;
       z-index: 2;
     }
+    .discman{
+      @include user-select(none !important);
+    }
     img{
+      @include user-select(none !important);
       max-height: 100%;
       width: auto;
     }
@@ -94,6 +98,7 @@
     height:50%;
     position: absolute;
     top: 50%;
+    left: 10%;
     @include transform(translate3d(0,0,0));
     // @include transform(translate3d(0,-60%,0));
 
@@ -136,7 +141,7 @@
         position: relative;
         @include transition(transform .2s linear);
         &:hover{
-          @include transform(scale(1.05));
+          @include transform(scale(1.05) rotate(-10deg));
           cursor: none;
         }
         //add active class on click to trigger flip

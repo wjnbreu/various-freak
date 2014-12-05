@@ -18,11 +18,11 @@
 
   <!-- TO-DO: Add AWS download link -->
 
-  <section class="background" drop-zone soundcloud-stuff globalSongPlaying="false">
+  <section class="background" drop-zone soundcloud-stuff>
     <div class="button-area" ng-click="playPauseSong()"></div>
     <div class="discman">
-      <img src="images/cdj.png" ng-show="!globalSongPlaying"/>
-      <img src="images/cdj-play.png" ng-show="globalSongPlaying"/>
+      <img src="images/cdj.png" ng-show="!globalSongPlaying" draggable="false"/>
+      <img src="images/cdj-play.png" ng-show="globalSongPlaying" draggable="false"/>
     </div>
   </section>
 
@@ -32,7 +32,7 @@
     <ul class="list-wrapper" id="list-wrapper">
       <li class="full-album">
         <a href="#amazonlink">
-          <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" />
+          <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" draggable="false"/>
         </a>
       </li>
 

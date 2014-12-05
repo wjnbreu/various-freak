@@ -25,17 +25,17 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 
 		//soundcloud id
 		$scope.client = '895ed2c967a25411c75f5bce576b11f5';
-
-		$scope.listWidth = 4000;
 		$scope.playlistId = '20083427';
 
-		$scope.browser = browserprefix.getPrefix();
-
-
+		//fake default width
+		$scope.listWidth = 15000;
 		
 
+		$scope.browser = browserprefix.getPrefix();
+		console.log($scope.browser);
 
 
+	
 
 
 		$scope.trust = function(src){
@@ -66,6 +66,7 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 				//now add new size
 				$scope.tracks.artwork = $scope.tracks.artwork + 't500x500.jpg';
 
+				//drops loading page
 				$scope.ready = true;
 
 			});

@@ -27,15 +27,6 @@ angular.module('variousAssetsApp').directive('draggable', function () {
 				//cancels disappearing cd bug
 				$.ui.ddmanager.current.cancelHelperRemoval = true;
 			}
-			//remove all currently playing classes to prep for cd reset
-			// start: function(event, ui){
-			// 	console.log('dragstart');
-			// 	cds.each(function(){
-			// 		if ($(this).hasClass('currently-playing')){
-			// 			$(this).removeClass('currently-playing');
-			// 		}
-			// 	});
-			// }
 		});
 	}
 

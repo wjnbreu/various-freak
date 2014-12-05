@@ -36,64 +36,66 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', functi
 
 
 		//TO-DO: MAKE GATE ON MOUSEWHEEL SO NOT FIRING LIKE CRAZY
-		element.mousewheel(function(event, delta){
+		element.mousewheel(function(event){
 			event.preventDefault();
 			
 			//get current pos of item
 			box = item.getBoundingClientRect();
 			boxPos = box.left;
 			
+			
 
-			scrollPos -= Math.floor(delta);
+			//if user is scrolling down
+			if (Math.abs(event.deltaY) > Math.abs(event.deltaX)){
+				scrollPos -= Math.floor(event.deltaY);
 
-			//we are scrolling right
-			if (scrollPos > lastScroll){
-				//lower bound
-				if (scrollPos < 0){
-					scrollPos = 0;
-				}
-
-				//if scrollposition is less than position after cd clck transition, update
-				if (scrollPos <= -boxPos){
-					scrollPos = -boxPos;
-				}
 				//upper bound
 				if (scrollPos > maxWidth - bufferSpace){
 					scrollPos = maxWidth - bufferSpace;
 				}
-			}
-			else{
 
 				//lower bound
 				if (scrollPos < 0){
 					scrollPos = 0;
 				}
 
-				//if scrollposition is more than position after cd click transition, update
-				if (scrollPos >= -boxPos){
-					scrollPos = -boxPos;
-				}
+				//modified jquery.transit to allow 3d transforms
+				list.transition({
+					x: -scrollPos,
+					y: 0,
+					z: 0
+				},0, 'linear');
+			
+				lastScroll = scrollPos;
+			}
 
-				//upperbound
+
+
+
+
+			//if user is scrolling sideways
+			if (Math.abs(event.deltaX) > Math.abs(event.deltaY)){
+				scrollPos -= Math.floor(event.deltaX);
+
+				//upper bound
 				if (scrollPos > maxWidth - bufferSpace){
 					scrollPos = maxWidth - bufferSpace;
 				}
 
-				
-			}
+				//lower bound
+				if (scrollPos < 0){
+					scrollPos = 0;
+				}
 
-			
-			if (-scrollPos > 3 || -scrollPos < -3){
 				//modified jquery.transit to allow 3d transforms
-			list.transition({
-				x: -scrollPos,
-				y: 0,
-				z: 0
-			},0, 'linear');
-			}
+				list.transition({
+					x: -scrollPos,
+					y: 0,
+					z: 0
+				},0, 'linear');
 			
-
-			lastScroll = scrollPos;
+				lastScroll = scrollPos;
+			}
 			
 		});
 		
