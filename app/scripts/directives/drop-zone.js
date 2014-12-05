@@ -41,7 +41,13 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function
 				
 				//use soundcloud directive api
 				soundcloudStuffCtrl.playSong(songId);
-				$scope.globalSongPlaying = true;
+
+				//run digest
+				$scope.$apply(function(){
+					$scope.globalSongPlaying = true;
+					$scope.loadedFirstSong = true;
+				});
+				
 
 				var bringCDsBack = function(){
 					cds.each(function(){

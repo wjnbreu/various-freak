@@ -86,6 +86,11 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 			});
 		},
 
+		stopSongs: function(){
+			soundManager.stopAll();
+			$rootScope.$broadcast('songEnded');
+		},
+
 
 
 		pauseSong: function(){
@@ -138,24 +143,54 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 		//default value, used in play-status directive as well. watch set in controller
 		$scope.globalSongPlaying = false;
 
+		//flag to make sure button only is activiated once cd is in
+		$scope.loadedFirstSong = false;
+
 		$scope.songstatus = {};
 		
 		//set up soundcloud on element
 		player.init($scope.playlistId);
 
+		
 
 
-		//when songs are in, grab data
+		//wait for response from player init, then set up bindings
 		$rootScope.$on('tracksReady', function(msg, data){
-
 			$scope.tracks = data;
-
+			$scope.playPauseSong = function(){
+				console.log('sclick');
+				if ($scope.globalSongPlaying){
+					player.pauseSong();
+					$scope.globalSongPlaying = false;
+				}
+				else{
+					if ($scope.loadedFirstSong){
+						player.resumeSong();
+						$scope.globalSongPlaying = true;
+					}
+				}
+			};
 		});
+
+
+
 
 		$rootScope.$on('songStarted', function(){
 			$scope.ended = false;
 			//get duration of entire song
 			$scope.songDuration = player.duration;
+			$scope.globalSongPlaying = true;
+			console.log('Song started');
+		});
+
+		$rootScope.$on('songResumed', function(){
+			$scope.globalSongPlaying = true;
+			console.log('Song resuemd');
+		});
+
+		$rootScope.$on('songPaused', function(){
+			$scope.globalSongPlaying = false;
+			console.log('song paused');
 		});
 
 		//if song is over, clear interval
@@ -174,60 +209,21 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 		controller: function($scope, $rootScope){
 
 			var self = this;
-			
-			//api object
-			$scope.player = {};
 
 			$scope.globalSongPlaying = false;
 			
 			$rootScope.$on('tracksReady', function(){
 				
-				//expose methods
+				//expose methods, in this case, only play since that's the only thing dropping does
+				//all other control goes to play/pause button
 				self.playSong = function(songId){
-					//if any songs are playing, kill them
-					soundManager.stopAll();
-					$scope.globalSongPlaying = false;
-
-					$scope.current.trackId = songId;
-
-					player.playSong(songId);
-					$scope.globalSongPlaying = true;
-
-					//make sure we count the first song as loaded for a flag
-					$scope.loadedFirstSong = true;
-				};
-
-				self.playPauseSong = function(){
-					if ($scope.globalSongPlaying){
-						player.pauseSong();
-						$scope.globalSongPlaying = false;
-
-					}
-
-					else if (!$scope.globalSongPlaying){
-						if ($scope.loadedFirstSong){
-							player.resumeSong();
-							$scope.globalSongPlaying = true;
-						}
-					}
-
-				};
-
-				self.resumeSong = function(songId){
-					if (!$scope.ended){
-						player.resumeSong();
-					}
-					else{
-						player.playSong(songId);
-						//make sure to get currentlocation of song every few seconds
-						progressCheck = $interval(function(){
-							$scope.currentPosition = currentPosition;
-						},100);
-
-						player.setupScrubber();
-					}
 					
-					$scope.globalSongPlaying = true;
+					//if any songs are playing, kill them
+					player.stopSongs();
+
+					//then play
+					player.playSong(songId);
+
 				};
 
 			});
