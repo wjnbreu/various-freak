@@ -22,6 +22,10 @@ angular.module('variousAssetsApp').directive('draggable', function () {
 			revertDuration: 1000,
 			helper: function(event, ui){
 				return cdTarget;
+			},
+			stop: function(event, ui){
+				//cancels disappearing cd bug
+				$.ui.ddmanager.current.cancelHelperRemoval = true;
 			}
 			//remove all currently playing classes to prep for cd reset
 			// start: function(event, ui){

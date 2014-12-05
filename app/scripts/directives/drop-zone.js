@@ -24,10 +24,14 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function
 			hoverClass: 'ui-state-highlight',
 			drop: function(event, ui){
 
+				//cancels disappearing cd bug
+				$.ui.ddmanager.current.cancelHelperRemoval = true;
+
 				var disc = ui.draggable;
 
 				//grab song id from id of element
 				var songId = disc.attr('id');
+				console.log(songId);
 
 				var playingItem = $('#' + songId);
 				playingItem.find('.cd-spin').addClass('currently-playing');
