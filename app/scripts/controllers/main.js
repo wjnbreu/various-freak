@@ -11,8 +11,23 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 	'$scope',
 	'$sce',
 	'$rootScope',
+	'localStorageService',
 	'browserprefix',
-	function ($scope, $sce, $rootScope, browserprefix) {
+	function ($scope, $sce, $rootScope, localStorageService, browserprefix) {
+
+		//used to determine if user has visited before
+		var displayModal = function(){
+			return localStorageService.get('modalVisited');
+		};
+
+		if (displayModal()){
+			$scope.modal = false;
+		}
+
+		else{
+			$scope.modal = true;
+		}
+
 
 		//used for spinner
 		$scope.ready = false;
@@ -23,6 +38,8 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 		//enables play pause for first time
 		$scope.loadedFirstSong = false;
 
+
+
 		//soundcloud id
 		$scope.client = '895ed2c967a25411c75f5bce576b11f5';
 		$scope.playlistId = '20083427';
@@ -30,9 +47,20 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 		//fake default width
 		$scope.listWidth = 15000;
 		
-
+		//returns prefix for CSS3 transforms
 		$scope.browser = browserprefix.getPrefix();
-		console.log($scope.browser);
+
+		//checks local storage capabilities
+		var storageType = localStorageService.getStorageType();
+
+		$scope.submitStorage = function(key, value){
+			$scope.modal = false;
+			return localStorageService.set(key, value);
+		};
+
+		console.log(localStorageService.get('modalVisited'));
+
+
 
 
 	

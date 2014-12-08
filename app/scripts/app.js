@@ -15,6 +15,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'LocalStorageModule'
   ])
   .config(['$routeProvider', '$sceDelegateProvider', function ($routeProvider, $sceDelegateProvider) {
     $routeProvider

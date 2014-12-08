@@ -16,10 +16,19 @@
    <div id="big-cursor" big-hand><img src="images/hand.png" /></div>
 
 
-  <!-- TO-DO: Add AWS download link -->
+  <section class="modal" ng-if="modal" ng-click="submitStorage('modalVisited', 'true')">
+    <div class="modal-pop">
+      <h2>INSTRUCTIONS</h2>
+      <p>Use mouse to drag songs into player</p>
+      <p>Scroll up/down or right/left to see more songs</p>
+      <p>Click anywhere to close this thing</p>
+    </div>
+  </section>
+  
 
   <section class="background" drop-zone soundcloud-stuff>
     <div class="button-area" ng-click="playPauseSong()"></div>
+    <!-- <div class="drop-area"></div> -->
     <div class="discman">
       <img src="images/cdj.png" ng-show="!globalSongPlaying" draggable="false"/>
       <img src="images/cdj-play.png" ng-show="globalSongPlaying" draggable="false"/>
@@ -28,11 +37,15 @@
 
 
   <section class="grid" id="grid">
-
     <ul class="list-wrapper" id="list-wrapper">
+      <!-- TO-DO: Add AWS download link -->
       <li class="full-album">
-        <a href="#amazonlink">
+        <a href="#">
           <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" draggable="false"/>
+          <div class="download-text">
+            <h3>DOWNLOAD</h3>
+            <h3 class="fa fa-cloud-download"></h3>
+          </div>
         </a>
       </li>
 
