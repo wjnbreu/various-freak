@@ -20,6 +20,7 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 			return localStorageService.get('modalVisited');
 		};
 
+		//check local storage
 		if (displayModal()){
 			$scope.modal = false;
 		}
@@ -65,15 +66,17 @@ angular.module('variousAssetsApp').controller('MainCtrl', [
 
 	
 
-
+		//safety
 		$scope.trust = function(src){
 			return $sce.trustAsResourceUrl(src + '?client_id=' + $scope.client);
 		};
 
+		//safety
 		$scope.download = function(url){
 			return $sce.trustAsResourceUrl(url + '?client_id=' + $scope.client);
 		};
 
+		//serve big version of soundcloud image
 		$scope.enlarge = function(src){
 			src = src.slice(0,-9);
 			src = src + 't500x500.jpg';
