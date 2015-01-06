@@ -14,6 +14,21 @@
 
 }
 
+
+/* Webfont: ClanPro-NarrBold */@font-face {
+    font-family: 'clan';
+    src: url('../fonts/ClanPro-NarrBold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ClanPro-NarrBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ClanPro-NarrBold.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ClanPro-NarrBold.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ClanPro-NarrBold.svg#ClanPro-NarrBold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
+
 /* Webfont: Daniel */@font-face {
     font-family: 'Daniel';
     src: url('../fonts/Daniel.eot'); /* IE9 Compat Modes */
@@ -25,7 +40,6 @@
     font-weight: normal;
     text-rendering: optimizeLegibility;
 }
-
 
 
 

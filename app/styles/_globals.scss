@@ -8,11 +8,12 @@ body{
 	height: 100%;
 	font-family: 'Karla', helvetica, sans-serif;
 	font-size: 16px;
-	@include background(linear-gradient(rgba(72,64,88,1), rgba(148,60,70,1), rgba(249,102,51,1)) left repeat);
+	@include background(linear-gradient(white, $pink) left repeat);
+	background: url(../images/party.jpg) no-repeat center center;
 	background-size: cover;
 }
 
-h1,h3{
+h1,h2,h3{
 	font-family: 'clan', 'Karla', helvetica, sans-serif;
 	letter-spacing: 1px;
 	-webkit-font-smoothing: antialiased;
@@ -28,7 +29,7 @@ h1,h3{
 #big-cursor{
 	z-index: 9;
     position: absolute;
-    width: 400px;
+    width: 900px;
     min-height: 80px;
     overflow: hidden;
     overflow-x: hidden;
