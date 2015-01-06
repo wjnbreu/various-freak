@@ -1,0 +1,68 @@
+<div class="loading-container" ng-if="!ready">
+  <section class="loading-text-container">
+    <h1 class="fa fa-circle-o-notch fa-spin"></h1>
+  </section>
+</div>
+
+
+
+
+
+<div class="main-frame" mousewheel>
+   <div id="big-cursor" big-hand><img src="images/hand2.png" /></div>
+
+  
+
+  <section class="background" drop-zone soundcloud-stuff>
+    <div class="button-area" ng-click="playPauseSong()"></div>
+    <!-- <div class="drop-area"></div> -->
+    <div class="discman">
+    	<!-- <div ng-include="'partials/_player.html'"></div> -->
+      <img src="images/cdj.png" ng-show="!globalSongPlaying" draggable="false"/>
+      <img src="images/cdj-play.png" ng-show="globalSongPlaying" draggable="false"/>
+    </div>
+  </section>
+
+
+  <section class="grid" id="grid">
+    <ul class="list-wrapper" id="list-wrapper">
+      <!-- TO-DO: Add AWS download link -->
+      <!-- <li class="full-album">
+        <a href="#">
+          <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" draggable="false"/>
+          <div class="download-text">
+            <h3>DOWNLOAD</h3>
+            <h3 class="fa fa-cloud-download"></h3>
+          </div>
+        </a>
+      </li> -->
+
+      <li class="song-list" ng-repeat="track in tracks" measure-list list-width="275" list-padding="300" index="{{$index}}">
+        <div class="flip-container">
+          <!--pass in song id as id to drop zone-->
+          <div class="flipper" draggable id="{{track.id}}">
+            <div class="cd-spin">
+              <img src="images/cd_logo.png" />
+            </div>
+            <!-- ng-click="playSong(track.id)" goes here , so does shift-element directive -->
+            <div class="front">
+              <div class="text-container">
+                <h3>{{$index + 1}}</h3>
+                <h3>{{track.title}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+
+
+<div class="mobile-frame">
+  <section class="mobile-grid">
+    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/20083427&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
+  </section>
+</div>
+
+

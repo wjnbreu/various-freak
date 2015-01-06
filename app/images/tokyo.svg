@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg2" xmlns:cc="http://web.resource.org/cc/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:dc="http://purl.org/dc/elements/1.1/" inkscape:version="0.45.1" sodipodi:docname="Emblem of Tokyo.svg" sodipodi:version="0.32" inkscape:output_extension="org.inkscape.output.svg.inkscape"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-45 97 519.6 600"
+	 enable-background="new -45 97 519.6 600" xml:space="preserve">
+
+ 	<style>
+    @-webkit-keyframes doit {
+      from {
+        stroke-dasharray:5px;
+        stroke-dashoffset:100px;
+      }
+      to {
+        stroke-dasharray:5px;
+        stroke-dashoffset:110px;
+      }
+    }
+    @-webkit-keyframes doit2 {
+      from {
+        stroke-dasharray:200px;
+        stroke-dashoffset:600px;
+      }
+      to {
+        stroke-dasharray:200px;
+        stroke-dashoffset:200px;
+      }
+    }
+    .path {
+        -webkit-animation:1s doit infinite linear;
+    }
+</style>
+  
+<g id="layer1" inkscape:label="Layer 1" inkscape:groupmode="layer">
+	<path class="path" id="rect2160" fill="none" stroke="#FFFFFF" d="M214.8,97l-25,25v127.1c-36.2,6.1-68.1,25.2-90.6,52.3l-110.1-63.6L-45,247l9.2,34.1
+		l110,63.5c-6.1,16.3-9.4,33.9-9.4,52.3s3.3,36,9.4,52.3l-110,63.5L-45,547l34.2,9.1l110.1-63.5c22.5,27.1,54.3,46.2,90.6,52.3V672
+		l25,25l25-25V544.9c36.2-6.1,68.1-25.2,90.6-52.3l110.1,63.5l34.2-9.1l-9.2-34.2l-110-63.5c6.1-16.3,9.4-33.9,9.4-52.3
+		s-3.3-36-9.4-52.3l110-63.5l9.2-34.1l-34.2-9.2l-110.1,63.6c-22.5-27.1-54.3-46.2-90.6-52.3V122L214.8,97z M214.8,297
+		c55.2,0,100,44.8,100,100s-44.8,100-100,100s-100-44.8-100-100S159.6,297,214.8,297z M214.8,347c-27.6,0-50,22.4-50,50
+		c0,27.6,22.4,50,50,50s50-22.4,50-50C264.8,369.4,242.4,347,214.8,347z"/>
+</g>
+</svg>

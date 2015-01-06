@@ -23,6 +23,10 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/player', {
+        templateUrl: 'views/player.html',
+        controller: 'PlayerCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,100 +1,38 @@
-<div class="loading-container" ng-if="!ready">
-  <section class="loading-text-container">
-    <h1 class="fa fa-circle-o-notch fa-spin"></h1>
-  </section>
-</div>
-
-
-
-<!--PARTIALS-->
-<splash-screen></splash-screen>
-<nav-stuff></nav-stuff>
-
-
-
-<div class="main-frame" mousewheel>
-   <div id="big-cursor" big-hand><img src="images/hand.png" /></div>
-
-
-  <section class="modal" ng-if="modal" ng-click="submitStorage('modalVisited', 'true')">
-    <div class="modal-pop">
-      <h2>INSTRUCTIONS</h2>
-      <p>Use mouse to drag songs into player</p>
-      <p>Use play button to start and stop songs</p>
-      <p>Scroll up/down or right/left to see more songs</p>
-      <p>Click anywhere to close this thing</p>
-    </div>
-  </section>
-
-  <section class="logo">
-    <img src="images/logo.png" alt="RBMA" />
-    <h1>Various Assets –</h1>
-    <h1>Not For Sale</h1>
-    <h3>A Selection Of Tunes Recorded At The Red Bull Music Academy Tokyo 2014</h3>
-    <!-- <div class="button-group">
-      <div class="button">
-        <a href="https://twitter.com/share?url=http://www.redbullmusicacademy.jp/features/tokyo&text=世界を旅する音楽学校がついに日本へ。 あなたの創造（クリエイション）の根源にあるものとは?&hashtags=RBMATOKYO", target="blank">
-          <span class="fa fa-twitter"></span>
-        </a>
-      </div>
-      <div class="button">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.redbullmusicacademy.jp/features/tokyo", target="blank">
-          <span class="fa fa-facebook"></span>
-        </a>
-      </div>
-    </div> -->
-  </section>
+<div class="splash-container">
   
-
-  <section class="background" drop-zone soundcloud-stuff>
-    <div class="button-area" ng-click="playPauseSong()"></div>
-    <!-- <div class="drop-area"></div> -->
-    <div class="discman">
-      <img src="images/cdj.png" ng-show="!globalSongPlaying" draggable="false"/>
-      <img src="images/cdj-play.png" ng-show="globalSongPlaying" draggable="false"/>
-    </div>
-  </section>
-
-
-  <section class="grid" id="grid">
-    <ul class="list-wrapper" id="list-wrapper">
-      <!-- TO-DO: Add AWS download link -->
-      <li class="full-album">
-        <a href="#">
-          <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" draggable="false"/>
-          <div class="download-text">
-            <h3>DOWNLOAD</h3>
-            <h3 class="fa fa-cloud-download"></h3>
-          </div>
-        </a>
-      </li>
-
-      <li class="song-list" ng-repeat="track in tracks" measure-list list-width="275" list-padding="300" index="{{$index}}">
-        <div class="flip-container">
-          <!--pass in song id as id to drop zone-->
-          <div class="flipper" draggable id="{{track.id}}">
-            <div class="cd-spin">
-              <img src="images/cd_logo.png" />
-            </div>
-            <!-- ng-click="playSong(track.id)" goes here , so does shift-element directive -->
-            <div class="front">
-              <div class="text-container">
-                <h3>{{$index + 1}}</h3>
-                <h3>{{track.title}}</h3>
-              </div>
-            </div>
-          </div>
+  <div id="tridiv">
+    
+    <div class="scene" style="-webkit-transform:rotateX(0deg) rotateY(721deg); -moz-transform:rotateX(0deg) rotateY(721deg); -ms-transform:rotateX(0deg) rotateY(721deg); transform:rotateX(0deg) rotateY(721deg);">
+      <a href="#" download>
+      <div class="shape cuboid-1 cub-1">
+        <div class="face ft">
+          <div class="photon-shader" style="background-color: rgba(255, 255, 255, 0.054902);"></div>
         </div>
-      </li>
-    </ul>
+
+        <div class="face bk">
+          <div class="photon-shader" style="background-color: rgba(255, 255, 255, 0.054902);"></div>
+        </div>
+        <div class="face rt">
+          <div class="photon-shader" style="background-color: rgba(255, 255, 255, 0.054902);"></div>
+        </div>
+
+        <div class="face lt">
+          <div class="photon-shader" style="background-color: rgba(255, 255, 255, 0.054902);"></div>
+        </div>
+
+        <div class="face bm">
+          <div class="photon-shader" style="background-color: rgba(255, 255, 255, 0.054902);"></div>
+        </div>
+
+        <div class="face tp">
+          <div class="photon-shader" style="background-color: rgba(255, 255, 255, 0.054902);"></div>
+        </div>
+      </div>
+    </a>
+    </div>
+  </div>
+
+  <section class="instructions">
+    <h1 ng-click="goto('/player')">Click to enter</h1>
   </section>
 </div>
-
-
-<div class="mobile-frame">
-  <section class="mobile-grid">
-    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/20083427&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
-  </section>
-</div>
-
-

@@ -7,10 +7,10 @@ body{
 	width: 100%;
 	height: 100%;
 	font-family: 'Karla', helvetica, sans-serif;
-	font-size: 16px;
-	@include background(linear-gradient(white, $pink) left repeat);
-	background: url(../images/party.jpg) no-repeat center center;
+	font-size: 16px;	
 	background-size: cover;
+	// background: url('../images/tokyo.svg') no-repeat center center;
+	background-color: black;
 }
 
 h1,h2,h3{

@@ -1,71 +1,55 @@
-//cd animations
-@-webkit-keyframes spin{
-  0%{
-    -webkit-transform: rotateX(3deg) rotateY(0deg);
-  }
-  100%{
-    -webkit-transform: rotateX(3deg) rotateY(360deg)
-  }
-}
 
-@keyframes spin{
-  0%{
-    -moz-transform: rotateX(3deg) rotateY(0deg);
-    -ms-transform: rotateX(3deg) rotateY(0deg);
-    -o-transform: rotateX(3deg) rotateY(0deg);
-    transform: rotateX(3deg) rotateY(0deg);
+
+@include keyframes(rotate){
+  from{
+    @include transform(rotateY(0deg));
   }
-  100%{
-    -moz-transform: rotateX(3deg) rotateY(360deg);
-    -ms-transform: rotateX(3deg) rotateY(360deg);
-    -o-transform: rotateX(3deg) rotateY(360deg);
-    transform: rotateX(3deg) rotateY(360deg);
+  to{
+    @include transform(rotateY(360deg));
   }
 }
 
 
-
-//cd-spin
-cd-spin {
-  @include vendorize(perspective, 800px);
+/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
+#tridiv {
+  @include perspective(800px);
   position: absolute;
-  overflow: hidden;
+  left: 0;
   top: 0;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   background: transparent;
   font-size: 100%;
 }
 .face {
-  @include vendorize(box-shadow, inset 0 0 0 1px rgba(0, 0, 0, 0.4));
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
 }
 .scene, .shape, .face, .face-wrapper, .cr {
   position: absolute;
-  @include vendorize(transform-style, preserve-3d);
+  @include transform-style(preserve-3d);
 }
 .scene {
-  width: 100em;
-  height: 100em;
+  width: 80em;
+  height: 80em;
   top: 50%;
   left: 50%;
-  margin: -50em 0 0 -50em;
-  @include vendorize(transform, rotateX(3deg) rotateY(0deg));
-  @include vendorize(animation, spin 10s infinite linear);
-  @media (min-width: 1500px){
-    margin-top: -55em;
-  }
+  margin: -40em 0 0 -40em;
+  @include animation(rotate 15s linear infinite);
 }
 .shape {
   top: 50%;
   left: 50%;
   width: 0;
   height: 0;
-  @include vendorize(transform-origin, 50%);
+  
+  @include transform-origin(50%);
 }
 .face, .face-wrapper {
   overflow: hidden;
-  transform-origin: 0 0;
-  @include vendorize(backface-visibility, hidden);
+  @include transform-origin(0 0);
+  @include backface-visibility(hidden);
+
   /* hidden by default, prevent blinking and other weird rendering glitchs */
 }
 .face {
@@ -98,16 +82,16 @@ cd-spin {
   left: 100%;
 }
 [class*="cuboid"] .rt {
-  @include vendorize(transform, rotateY(-90deg) translateX(-50%));
+  @include transform(rotateY(-90deg) translateX(-50%));
 }
 [class*="cuboid"] .lt {
-  @include vendorize(transform, rotateY(90deg) translateX(-50%));
+  @include transform(rotateY(90deg) translateX(-50%));
 }
 [class*="cuboid"] .tp {
-  @include vendorize(transform, rotateX(90deg) translateY(-50%));
+  @include transform(rotateX(90deg) translateY(-50%));
 }
 [class*="cuboid"] .bm {
-  @include vendorize(transform, rotateX(-90deg) translateY(-50%));
+  @include transform(rotateX(-90deg) translateY(-50%));
 }
 [class*="cuboid"] .lt {
   left: 100%;
@@ -117,42 +101,32 @@ cd-spin {
 }
 /* .cub-1 styles */
 .cub-1 {
-  @include vendorize(transform, translate3D(0em, 0em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg));
+  @include transform(translate3D(0.0625em, -0.0625em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg));
   opacity:1;
   width:20em;
   height:20em;
   margin:-10em 0 0 -10em;
-  @media (min-width: 1500px){
-    width: 30em;
-    height: 30em;
-  }
 }
 .cub-1 .ft {
-  @include vendorize(transform,translateZ(0.1875em));
+  @include transform(translateZ(0.25em));
 }
 .cub-1 .bk {
-  @include vendorize(transform,translateZ(-0.1875em) rotateY(180deg));
+  transform:translateZ(-0.25em) rotateY(180deg);
 }
 .cub-1 .rt, .cub-1 .lt {
-  width:0.75em;
+  width:1em;
   height:20em;
-  @media (min-width: 1500px){
-    height: 30em;
-  }
 }
 .cub-1 .tp, .cub-1 .bm {
   width:20em;
-  height:0.75em;
-  @media (min-width: 1500px){
-    width: 30em;
-  }
+  height:1em;
 }
 .cub-1 .face {
-  background-color:#ffffff;
+  background-color:#6c6c6c;
 }
 .cub-1 .ft {
-  background:url(https://images.contentful.com/nzzc81ennjvl/3l5a4Ver5eA0mk4GQYGskc/0e3ed7fd3f1ea88e21266cfb5eaf0a95/R-5627365-1405780157-1766.jpeg);
+  background:url(https://s3.amazonaws.com/blank-canvas/va-front.jpg);
 }
 .cub-1 .bk {
-  background:url(https://images.contentful.com/nzzc81ennjvl/4AUY3ZwWnKMgc4MEEgoU82/f6a7c790ee0052a2fb15512c43493e1b/BACK.png);
+  background:url(https://s3.amazonaws.com/blank-canvas/va-back.jpg);
 }
