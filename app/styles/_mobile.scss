@@ -34,13 +34,14 @@
 			@include flex-direction(column);
 			@include align-items(center);
 			@include justify-content(center);
-			@include transform(rotate(5deg));
+			@include transform(rotate(2.5deg));
 			iframe, object, embed{
 				display: block;
 				width: 60% !important;
 				height: 150% !important;
 				box-shadow: 5px 5px 5px black;
 				margin-bottom: 100px;
+				@include smallboxy();
 			}
 		}
 	}

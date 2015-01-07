@@ -41,3 +41,22 @@ h1,h2,h3{
     }
 }
 
+@include keyframes(fadeOut){
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+	}
+}
+
+@include keyframes(fadeIn){
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+
+

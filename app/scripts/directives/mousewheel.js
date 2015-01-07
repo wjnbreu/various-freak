@@ -11,15 +11,18 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', '$time
 
 
 
-	var item = document.getElementById('list-wrapper');
-	var list = $('.list-wrapper');
-	var scrollPos = 0;
-	var maxWidth;
-	var lastScroll = 0;
-	var bufferSpace = 600;
-	var prefix;
-	var box = item.getBoundingClientRect();
-	var boxPos = box.left;
+
+	var link = function($scope, element){
+
+		var item = document.getElementById('list-wrapper');
+		var list = $('.list-wrapper');
+		var scrollPos = 0;
+		var maxWidth;
+		var lastScroll = 0;
+		var bufferSpace = 600;
+		var prefix;
+		var box = item.getBoundingClientRect();
+		var boxPos = box.left;
 
 	
 	$rootScope.$on('listWidth', function(msg, data){
@@ -28,10 +31,6 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', '$time
 
 
 	var bounceFlag = false;
-
-
-
-	var link = function($scope, element){
 
 		prefix = $scope.browser + 'transform';
 		
