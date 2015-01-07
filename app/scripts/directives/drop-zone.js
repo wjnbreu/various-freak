@@ -6,16 +6,37 @@
  * @description
  * # dropZone
  */
-angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function ($rootScope) {
+angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', 'soundcloudService', function ($rootScope, soundcloudService) {
 
 	
 	var cds;
 
-	var link = function($scope, element, attrs, soundcloudStuffCtrl){
+	var link = function($scope, element, attrs){
 
-		if ($scope.ready){
-			console.log('were ready')
-		}
+
+		$scope.playPauseSong = function(){
+			console.log('sclick');
+			if ($scope.globalSongPlaying){
+				soundcloudService.pauseSong();
+				$scope.globalSongPlaying = false;
+			}
+			else{
+				if ($scope.loadedFirstSong){
+					soundcloudService.resumeSong();
+					$scope.globalSongPlaying = true;
+				}
+			}
+		};
+
+		//listeners to control play button color
+		$rootScope.$on('songStarted', function(){
+			$scope.globalSongPlaying = true;
+		});
+
+		$rootScope.$on('songEnded', function(){
+			$scope.globalSongPlaying = false;
+		});
+
 
 
 		element.droppable({
@@ -40,14 +61,15 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function
 				playingItem.find('.cd-spin').addClass('currently-playing');
 				
 				//use soundcloud directive api
-				soundcloudStuffCtrl.playSong(songId);
+				soundcloudService.playSong(songId);
 
-				//run digest
+				//run digest since drop function is out of cycle
+				
 				$scope.$apply(function(){
 					$scope.globalSongPlaying = true;
 					$scope.loadedFirstSong = true;
 				});
-				
+
 
 				var bringCDsBack = function(){
 					cds.each(function(){
@@ -78,9 +100,7 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', function
 
 
 	return {
-		require: 'soundcloudStuff',
 		restrict: 'A',
-		link: link,
-		scope: true
+		link: link
 	};
 }]);
