@@ -56,14 +56,13 @@
         </a>
       </li>
 
-      <li class="song-list" ng-repeat="track in tracks" measure-list list-width="275" list-padding="300" index="{{$index}}">
+      <li class="song-list" ng-repeat="track in tracks" measure-list list-width="255" list-padding="275" index="{{$index}}">
         <div class="flip-container">
           <!--pass in song id as id to drop zone-->
           <div class="flipper" draggable id="{{track.id}}">
             <div class="cd-spin">
               <img src="images/cd_logo.png" />
             </div>
-            <!-- ng-click="playSong(track.id)" goes here , so does shift-element directive -->
             <div class="front">
               <div class="text-container">
                 <h3 class="num-order">{{$index + 1}}</h3>
@@ -72,6 +71,10 @@
             </div>
           </div>
         </div>
+      </li>
+      <li class="continue">
+        <h1>CONTINUE TO <br>
+          <a href="http://www.redbullmusicacademy.com" target="self">redbullmusicacademy.com</a></h1>
       </li>
     </ul>
   </section>

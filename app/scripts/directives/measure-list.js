@@ -8,19 +8,24 @@
  * @description
  * # measureList
  */
-angular.module('variousAssetsApp').directive('measureList', ['$rootScope', function ($rootScope) {
+angular.module('variousAssetsApp').directive('measureList', ['$rootScope', '$window', function ($rootScope, $window) {
 
 
 
 	//last list item measures total
 
-	var list = $('.list-wrapper');
+	
 
 
 	var link = function($scope, element, attrs){
 
-		//only measure on the last item so we can ensure we have full list
-		if ($scope.$last){
+		var list = $('#list-wrapper');
+		var w = angular.element($window);
+
+		
+
+		function sizeList(){
+			var winWidth = $window.innerWidth;
 			$scope.listWidth = 0;
 
 			//get attrs and convert to num
@@ -30,8 +35,8 @@ angular.module('variousAssetsApp').directive('measureList', ['$rootScope', funct
 
 			var fullWidth = listWidth + listPadding;
 
-			//since last item is not indluced in index, add one
-			var fullListWidth = fullWidth * (index + 1);
+			//since last item is not indluced in index, add one. HOWEVER, we don't actually since first item is not counted (cover art)
+			var fullListWidth = (fullWidth * index) + (fullWidth * 2);
 	
 			
 			$scope.listWidth = fullListWidth;
@@ -39,9 +44,24 @@ angular.module('variousAssetsApp').directive('measureList', ['$rootScope', funct
 			
 			
 			list.css({
-				width: fullListWidth + 'px'
+				width: fullListWidth + 'px',
+				left: (winWidth / 2) - ((listPadding / 2) + 10) + 'px'
 			});
 		}
+
+		
+
+
+		//only measure on the last item so we can ensure we have full list
+		if ($scope.$last){
+
+			sizeList();
+		}
+
+		//bind window resize
+		w.on('resize', function(){
+			sizeList();
+		});
 	};
 
 

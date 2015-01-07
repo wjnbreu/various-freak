@@ -6,7 +6,8 @@
 	left: 0;
 	z-index: 9999999999999;
 	background: url(../images/grid.jpg) no-repeat center center;
-	color: black;
+	background-size: cover;
+	color: white;
 	@include display(flex);
     @include justify-content(center);
     @include align-items(center);

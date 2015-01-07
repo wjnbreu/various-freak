@@ -147,12 +147,15 @@
   ul{
     list-style: none;
     font-size: 0px;
-    width: 3000px;
+    width: 5000px;
     height:40%;
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 0;
     @include transform(translate3d(0,0,0));
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
     // @include transform(translate3d(0,-60%,0));
 
     li{
@@ -212,6 +215,15 @@
             margin: 0;
             width: 90%;
             margin-bottom: 10px;
+          }
+        }
+      }
+      &.continue{
+        text-align: center;
+        width: auto;
+        h1{
+          a{
+            color: $pink;
           }
         }
       }
@@ -319,7 +331,7 @@
               text-transform: none;
               font-weight: normal;
               letter-spacing: -1px;
-              font-family:  'Clan', arial, sans-serif;
+              font-family: 'Clan', arial, sans-serif;
               &.num-order{
                 font-size: 2em;
                 font-weight: bold;
