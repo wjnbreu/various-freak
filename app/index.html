@@ -21,27 +21,19 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!--TWITTER-->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="rbma">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
 
-    <section class="logo">
-    <a href="/">
-      <img src="images/logo.png" alt="RBMA" />
-    </a>
-    <h1>Various Assets –</h1>
-    <h1>Not For Sale</h1>
-    <h3>A Selection Of Tunes Recorded At The Red Bull Music Academy Tokyo 2014</h3>
-    <div class="button-group">
-      <div class="button">
-        <a href="https://twitter.com/share?url=http://www.redbullmusicacademy.jp/features/tokyo&text=世界を旅する音楽学校がついに日本へ。 あなたの創造（クリエイション）の根源にあるものとは?&hashtags=RBMATOKYO", target="blank">
-          <span class="fa fa-twitter"></span>
-        </a>
-      </div>
-      <div class="button">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.redbullmusicacademy.jp/features/tokyo", target="blank">
-          <span class="fa fa-facebook"></span>
-        </a>
-      </div>
-    </div>
-  </section>
+    <div class="fb-like" data-href="http://www.redbullmusicacademy.com" data-width="127" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div> 
+
+    <div id="fb-root"></div>
+
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
+      </script>
+
+
     <div ng-view=""></div>
 
 
@@ -84,7 +76,6 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/song.js"></script>
         <script src="scripts/directives/soundcloud-stuff.js"></script>
         <script src="scripts/directives/advance-progress.js"></script>
         <script src="scripts/directives/mousewheel.js"></script>

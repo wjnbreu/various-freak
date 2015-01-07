@@ -4,6 +4,27 @@
   </section>
 </div>
 
+<section class="logo">
+    <a href="/">
+      <img src="images/logo.png" alt="RBMA" />
+    </a>
+    <h1>Various Assets –</h1>
+    <h1>Not For Sale</h1>
+    <h3>A Selection Of Tunes Recorded At The Red Bull Music Academy Tokyo 2014</h3>
+<!--     <div class="button-group">
+      <div class="button">
+        <a href="https://twitter.com/share?url=http://www.redbullmusicacademy.jp/features/tokyo&text=世界を旅する音楽学校がついに日本へ。 あなたの創造（クリエイション）の根源にあるものとは?&hashtags=RBMATOKYO", target="blank">
+          <span class="fa fa-twitter"></span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.redbullmusicacademy.jp/features/tokyo", target="blank">
+          <span class="fa fa-facebook"></span>
+        </a>
+      </div>
+    </div> -->
+  </section>
+
 
 
 <div class="main-frame" mousewheel>
@@ -25,15 +46,15 @@
   <section class="grid" id="grid" soundcloud-stuff playlist='69964527' secret='s-pGXST'>
     <ul class="list-wrapper" id="list-wrapper">
       <!-- TO-DO: Add AWS download link -->
-      <!-- <li class="full-album">
+      <li class="full-album">
         <a href="#">
           <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" draggable="false"/>
           <div class="download-text">
-            <h3>DOWNLOAD</h3>
+            <h3>DOWNLOAD ALL</h3>
             <h3 class="fa fa-cloud-download"></h3>
           </div>
         </a>
-      </li> -->
+      </li>
 
       <li class="song-list" ng-repeat="track in tracks" measure-list list-width="275" list-padding="300" index="{{$index}}">
         <div class="flip-container">
@@ -45,7 +66,7 @@
             <!-- ng-click="playSong(track.id)" goes here , so does shift-element directive -->
             <div class="front">
               <div class="text-container">
-                <h3>{{$index + 1}}</h3>
+                <h3 class="num-order">{{$index + 1}}</h3>
                 <h3>{{track.title}}</h3>
               </div>
             </div>

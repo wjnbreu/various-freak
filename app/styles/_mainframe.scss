@@ -37,59 +37,6 @@
     display: none;
   }
 
-  .logo{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: auto;
-    background: $pink;
-    color: white;
-    z-index: 99;
-    text-align: center;
-    @include display(flex);
-    @include flex-direction(column);
-    @include align-items(center);
-    img{
-      position: relative;
-      max-width: 100%;
-      margin: 0;
-    }
-    h1{
-      margin: 0;
-      letter-spacing: -1px;
-      line-height: 1;
-    }
-    h3{
-      font-weight: normal;
-      width: 70%;
-      font-size: 0.8em;
-      letter-spacing: -0.5px;
-      margin-bottom: 40px;
-    }
-    .button-group{
-      box-sizing: border-box;
-      margin: 0;
-      .button{
-        background-color: white;
-        color: white;
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
-        display: inline-block;
-        @include smallboxy();
-        @include transition(all .1s linear);
-        &:active, &:hover{
-          @include vendorize(transform, translate(3px,3px));
-          @include vendorize(box-shadow, none);
-        }
-        a{
-          color: $pink;
-        }
-      }
-    }
-  }
-
 
 
   .background{
@@ -203,7 +150,7 @@
     width: 3000px;
     height:40%;
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 40%;
     @include transform(translate3d(0,0,0));
     // @include transform(translate3d(0,-60%,0));
@@ -234,6 +181,7 @@
          
          &:hover{
           .download-text{
+            text-align: center;
             opacity: 1;
             
           }
@@ -246,6 +194,7 @@
           @include transition(all .2s linear);
           @include display(flex);
           position: absolute;
+          text-align: center;
           opacity: 0;
           top: 0;
           left: 0;
@@ -367,6 +316,10 @@
               font-weight: normal;
               letter-spacing: -1px;
               font-family:  'Clan', arial, sans-serif;
+              &.num-order{
+                font-size: 2em;
+                font-weight: bold;
+              }
               i{
                 font-size: 1.5em;
                 margin: 0;

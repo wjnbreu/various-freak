@@ -9,12 +9,8 @@
  */
 angular.module('variousAssetsApp').controller('MainCtrl', [
 	'$scope',
-	'$sce',
-	'$rootScope',
 	'$location',
-	'localStorageService',
-	'browserprefix',
-	function ($scope, $sce, $rootScope, $location, localStorageService, browserprefix) {
+	function ($scope, $location) {
 
 		$scope.goto = function(path){
 			$location.path(path);

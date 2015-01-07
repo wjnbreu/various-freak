@@ -9,7 +9,8 @@ body{
 	font-family: 'Karla', helvetica, sans-serif;
 	font-size: 16px;	
 	background-size: cover;
-	background-color: black;
+	background: #cecebe;
+	// @include background(linear-gradient(rgba(72,64,88,1), rgba(148,60,70,1), rgba(249,102,51,1)) left repeat);
 }
 
 h1,h2,h3{
@@ -26,7 +27,7 @@ h1,h2,h3{
 
 
 #big-cursor{
-	z-index: 9;
+	z-index: 99;
     position: absolute;
     width: 900px;
     min-height: 80px;

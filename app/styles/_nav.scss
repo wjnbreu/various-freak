@@ -8,34 +8,61 @@
 }
 
 
+.fb-like{
+  z-index: 999;
+  position: fixed !important;
+  top: 15px;
+  right: 20px;
+  width: 127px;
+  height:32px;
+  @media (max-width: $phone){
+    top: 5px;
+  }
+}
+
+.twitter-share-button{
+  z-index: 9999;
+  position: fixed !important;
+  top: 15px;
+  right: 132px;
+  height: 32px;
+  width: 32px;
+  @media (max-width: $phone){
+    top: 7px;
+  }
+}
+
 
 .logo{
     position: fixed;
-    top: 0;
+    top: 20px;
     left: 0;
     width: 150px;
     height: auto;
     background: $pink;
-    color: white;
-    z-index: 99;
+    color:white;
+    z-index: 9;
     text-align: center;
     @include display(flex);
     @include flex-direction(column);
+    -webkit-font-smoothing: antialiased;
     @include align-items(center);
     img{
       position: relative;
-      max-width: 100%;
+      max-width: 80%;
       margin: 0;
     }
     h1{
+      max-width: 90%;
       margin: 0;
+      font-size: 2em;
       letter-spacing: -1px;
       line-height: 1;
     }
     h3{
       font-weight: normal;
       width: 70%;
-      font-size: 0.8em;
+      font-size: 0.7em;
       letter-spacing: -0.5px;
       margin-bottom: 40px;
     }
