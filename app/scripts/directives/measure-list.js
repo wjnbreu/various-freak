@@ -45,7 +45,7 @@ angular.module('variousAssetsApp').directive('measureList', ['$rootScope', '$win
 			
 			list.css({
 				width: fullListWidth + 'px',
-				left: (winWidth / 2) - ((listPadding / 2) + 15) + 'px'
+				left: (winWidth / 2) - ((listPadding / 2) + 10) + 'px'
 			});
 		}
 
