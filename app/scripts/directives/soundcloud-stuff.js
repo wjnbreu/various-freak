@@ -15,6 +15,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 	var tracks = [];
 	var currentSong;
 	var client_id = '895ed2c967a25411c75f5bce576b11f5';
+	var secret = 's-pGXST';
 
 	var currentPosition = 0;
 
@@ -55,7 +56,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 			var self = this;
 
 			//get song
-			SC.get('/tracks/' + songId, function(song){
+			SC.get('/tracks/' + songId + '?secret_token=' + secret, function(song){
 				self.songObject = song;
 
 				self.duration = self.songObject.duration;
@@ -123,7 +124,7 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', ['$rootScope', '
 
 			
 			//after init, get all VA set songs
-			SC.get('/users/' + user_id + '/playlists/' + playlistId, function(playlist){
+			SC.get('/users/' + user_id + '/playlists/' + playlistId + '?secret_token=' + secret, function(playlist){
 				tracks = playlist.tracks;
 				$rootScope.$broadcast('tracksReady', tracks);
 				self.initPlayer();

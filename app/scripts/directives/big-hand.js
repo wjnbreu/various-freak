@@ -13,8 +13,8 @@ angular.module('variousAssetsApp').directive('bigHand', function () {
 	        var tarX = e.pageX;
 	        var tarY = e.pageY;
 	        element.css({
-	            top: tarY + 10,
-	            left : tarX + 10
+	            top: tarY + 20,
+	            left : tarX + 20
 	        },0);
 	    });
 	}
