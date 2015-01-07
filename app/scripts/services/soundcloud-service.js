@@ -103,6 +103,19 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
       soundManager.resumeAll();
     },
 
+    getInfo: function(songId){
+      var self = this;
+
+      var deferred = $q.defer();
+
+      SC.get('/tracks/' + songId + '?secret_token=' + self.secret, function(song){
+
+        deferred.resolve(song);
+      });
+
+      return deferred.promise;
+    }
+
   };
 
 
@@ -124,6 +137,10 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
     resumeSong: function(){
       return player.resumeSong();
+    },
+
+    getInfo: function(songId){
+      return player.getInfo(songId);
     }
 
 

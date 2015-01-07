@@ -13,6 +13,8 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', 'soundcl
 
 	var link = function($scope, element, attrs){
 
+		$scope.currentSong = {};
+
 
 		$scope.playPauseSong = function(){
 			console.log('sclick');
@@ -62,6 +64,12 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', 'soundcl
 				
 				//use soundcloud directive api
 				soundcloudService.playSong(songId);
+
+				soundcloudService.getInfo(songId).then(function(data){
+					console.log(data);
+					$scope.currentSong.title = data.title;
+					$scope.currentSong.download = data.download_url;
+				});
 
 				//run digest since drop function is out of cycle
 				

@@ -47,6 +47,19 @@
     z-index: 3;
     @include user-select(none !important);
     @include transition(transform .2s linear);
+    .current-song{
+      text-align: center;
+      position: absolute;
+      top: 420px;
+      letter-spacing: 1px;
+      -webkit-font-smoothing: antialiased;
+      width: 100%;
+      display: block;
+      color: white;
+      font-size: 0.7em;
+      font-family: 'Clan';
+      font-weight: normal;
+    }
     @media (max-width: $phone){
       top: -50px;
       width: 70%;
@@ -145,6 +158,7 @@
     z-index: 3;
     left: 0;
     overflow: hidden;
+
   }
 
   ul{
