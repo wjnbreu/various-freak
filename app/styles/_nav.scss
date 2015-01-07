@@ -34,8 +34,8 @@
 
 
 .logo{
-    position: absolute;
-    top: 20px;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 150px;
     height: auto;
@@ -47,6 +47,10 @@
     @include flex-direction(column);
     -webkit-font-smoothing: antialiased;
     @include align-items(center);
+    @media (max-width: $tab){
+      width: 100px;
+      top: 0;
+    }
     img{
       position: relative;
       max-width: 80%;
@@ -60,6 +64,9 @@
       font-size: 2em;
       letter-spacing: -1px;
       line-height: 1;
+      @media (max-width: $tab){
+        font-size: 1em;
+      }
     }
     h3{
       font-weight: normal;
@@ -67,6 +74,9 @@
       font-size: 0.7em;
       letter-spacing: -0.5px;
       margin-bottom: 40px;
+      @media (max-width: $tab){
+        font-size: 0.6em;
+      }
     }
     .button-group{
       box-sizing: border-box;

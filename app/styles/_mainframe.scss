@@ -33,9 +33,6 @@
   background-size: contain;
 	overflow: hidden;
   z-index: 3;
-  @media (max-width: $tab){
-    display: none;
-  }
 
 
 
@@ -47,9 +44,15 @@
     left: 25%;
     overflow: hidden;
     text-align: center;
-    z-index: 1;
+    z-index: 3;
     @include user-select(none !important);
     @include transition(transform .2s linear);
+    @media (max-width: $phone){
+      top: -50px;
+      width: 70%;
+      left: 15%;
+      height: 250px;
+    }
     &.ui-state-highlight{
       @include transform(scale(1.05));
     }
@@ -212,6 +215,7 @@
           h3{
             display: block;
             font-size: 2em;
+            font-weight: normal;
             margin: 0;
             width: 90%;
             margin-bottom: 10px;
@@ -344,6 +348,24 @@
           }
         }
       }
+    }
+  }
+
+  .drag-instructions{
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    text-align: center;
+    h3{
+      color: white;
+      font-size: 0.8em;
+      font-family: 'Clan', 'Karla';
+      font-weight: normal;
+      text-transform: uppercase;
+      @include animation(fade 1s linear infinite);
+      @include animation-direction(alternate-reverse);
     }
   }
 }

@@ -8,8 +8,12 @@
 	left: 0;
 	color: white;
 	text-align: center;
+  -webkit-overflow-scrolling: touch;
+  @media (max-width: $tab){
+    display: none;
+  }
   	.instructions{
-  		position: fixed;
+  		position: absolute;
   		bottom: 40px;
   		left: 0;
   		width: 100%;
@@ -19,6 +23,7 @@
   			text-transform: uppercase;
   			font-size: 1em;
         color: white;
+        font-weight: normal;
         display: inline-block;
         line-height: 1.5;
         margin: 10px;
@@ -31,12 +36,16 @@
         &.continue{
           background: white;
           color: black;
-          padding: 5px 10px;
-          @include smallboxy();
+          font-size: 0.8em;
+          padding: 5px 20px;
+          // @include smallboxy();
           @include transition(transform .2s linear);
-          &:active{
-            @include transform(translate(3px,3px));
+          &:hover{
             box-shadow: none;
+            color: gray;
+          }
+          @media (max-width: $tab){
+            display: none;
           }
         }
   		}
