@@ -17,9 +17,17 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', [
 	function ($rootScope, $interval, $timeout, soundcloudService) {
 
 
-		var link = function($scope){
+		var link = function($scope, elements, attrs){
 
-			$scope.playlistId = '20083427';
+			var playlistId = attrs.playlist;
+
+			if (attrs.secret){
+				var secret = attrs.secret;
+			}
+			else{
+				var secret = null;
+			}
+			
 
 
 			//default value, used in play-status directive as well. watch set in controller
@@ -31,9 +39,10 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', [
 			
 
 
-			soundcloudService.init($scope.playlistId).then(function(data){
+			soundcloudService.init(playlistId, secret).then(function(data){
 				
 				$scope.tracks = data;
+				console.log($scope.tracks);
 
 				//get ref to artwork using first track in array as parent
 				var artwork = data[0].artwork_url;

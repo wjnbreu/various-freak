@@ -20,14 +20,24 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
     clientId: '895ed2c967a25411c75f5bce576b11f5',
     userId: '2270353',
+    secret: '',
+
+    //options for soundcloud player
+    options: {
+      volume: 90,
+      onFinish: function(){
+        $rootScope.$broadcast('songEnded');
+      }
+    },
 
     //holds all song objects from playlist
     tracks: [],
 
     
     //set up soundcloud player
-    init: function(playlistId){
+    init: function(playlistId, secret){
       var self = this;
+      self.secret = secret;
       var deferred = $q.defer();
 
       SC.initialize({
@@ -35,7 +45,7 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
       });
 
       //after init, get all VA set songs
-      SC.get('/users/' + self.userId + '/playlists/' + playlistId, function(playlist){
+      SC.get('/users/' + self.userId + '/playlists/' + playlistId + '?secret_token=' + secret, function(playlist){
         self.tracks = playlist.tracks;
         deferred.resolve(self.tracks);
         self.loadPlayer();
@@ -62,27 +72,15 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
     playSong: function(songId){
       var self = this;
 
+      //stop all other players
+      soundManager.stopAll();
+
       //get song
-      SC.get('/tracks/' + songId, function(song){
+      SC.stream('/tracks/' + songId + '?secret_token=' + self.secret, self.options, function(song){
         self.songObject = song;
+        song.play();
 
-        //stop all other players
-        soundManager.stopAll();
-
-        //create soundmanager object and play sound
-        soundManager.createSound({
-          url: self.songObject.stream_url + '?client_id=' + self.clientId,
-          id: self.songObject.id,
-          // volume: 1,
-          //signals to drop zone which color to render play button
-          onfinish: function(){
-            $rootScope.$broadcast('songEnded');
-          }
-        });
-        
-        //trigger play
-        soundManager.play(self.songObject.id);
-        
+                
         //change color of play button from drop zone
         $rootScope.$broadcast('songStarted');
         
@@ -111,8 +109,8 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
   // Public API here
   return {
 
-    init: function (playlistId) {
-      return player.init(playlistId);
+    init: function (playlistId, secret) {
+      return player.init(playlistId, secret);
     },
 
     //allow method. used by drop-zone
