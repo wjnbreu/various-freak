@@ -18,7 +18,7 @@
       <img src="images/cdj.png" ng-show="!globalSongPlaying" draggable="false"/>
       <img src="images/cdj-play.png" ng-show="globalSongPlaying" draggable="false"/>
     </div>
-    <div class="current-song"><a ng-href="{{currentSong.download}} + secret_token=s-pGXST">{{currentSong.title}}</a></div>
+    <div class="current-song" ng-if="currentSong.download"><a ng-href="{{currentSong.download}}" download><span class="fa fa-cloud-download"></span>{{currentSong.title}}</a></div>
   </section>
 
 

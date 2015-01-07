@@ -15,6 +15,8 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', 'soundcl
 
 		$scope.currentSong = {};
 
+		$scope.client = '895ed2c967a25411c75f5bce576b11f5';
+
 
 		$scope.playPauseSong = function(){
 			console.log('sclick');
@@ -68,7 +70,7 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', 'soundcl
 				soundcloudService.getInfo(songId).then(function(data){
 					console.log(data);
 					$scope.currentSong.title = data.title;
-					$scope.currentSong.download = data.download_url;
+					$scope.currentSong.download = data.download_url + '&client_id=' + $scope.client;
 				});
 
 				//run digest since drop function is out of cycle
