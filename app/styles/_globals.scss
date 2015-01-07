@@ -59,4 +59,12 @@ h1,h2,h3{
 	}
 }
 
+.view.ng-enter{
+	@include animation(fadeIn 0.3s linear);
+}
+
+.view.ng-leave{
+	@include animation(fadeOut 0.3s linear);
+}
+
 
