@@ -34,7 +34,7 @@
 
 
 .logo{
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 0;
     width: 150px;
@@ -50,6 +50,8 @@
     img{
       position: relative;
       max-width: 80%;
+      width: 80%;
+      height: auto;
       margin: 0;
     }
     h1{
