@@ -63,7 +63,6 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
       
       SC.stream('/tracks/' + self.tracks[0].id, function(song){
         self.currentSong = song;
-        console.log(self.currentSong);
       });
     },
 
@@ -71,6 +70,7 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
     playSong: function(songId){
       var self = this;
+
 
       //stop all other players
       soundManager.stopAll();
@@ -82,7 +82,7 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
                 
         //change color of play button from drop zone
-        $rootScope.$broadcast('songStarted');
+        $rootScope.$broadcast('songStarted', songId);
         
       });
     },
@@ -91,7 +91,7 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
     stopSongs: function(){
       soundManager.stopAll();
-      $rootScope.$broadcast('songEnded');
+      $rootScope.$broadcast('songEnded', song);
     },
 
 

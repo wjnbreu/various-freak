@@ -1,27 +1,4 @@
-@-webkit-keyframes spin{
-  0%{-webkit-transform:rotate(0deg);}
-  100%{-webkit-transform:rotate(360deg);}
-}
 
-@keyframes spin{
-  0%{transform:rotate(0deg);}
-  100%{transform:rotate(360deg);}
-}
-
-@include keyframes(spin){
-  from{
-    @include transform(rotate(0deg));
-  }
-  to{
-    @include transform(rotate(360deg));
-  }
-}
-
-@include keyframes(dash){
-  to{
-    stroke-dashoffset: 0;
-  }
-}
 
 
 .main-frame{
@@ -47,30 +24,6 @@
     z-index: 3;
     @include user-select(none !important);
     @include transition(transform .2s linear);
-    .current-song{
-      text-align: center;
-      position: absolute;
-      top: 420px;
-      letter-spacing: 1px;
-      -webkit-font-smoothing: antialiased;
-      width: 100%;
-      display: block;
-      color: white;
-      font-size: 0.7em;
-      font-family: 'Clan';
-      font-weight: normal;
-      a{
-        color: white;
-        text-decoration: none;
-        @include transition(all .2s linear);
-        span{
-          margin: 0 10px;
-        }
-        &:hover{
-          color: gray;
-        }
-      }
-    }
     @media (max-width: $phone){
       top: -50px;
       width: 70%;
@@ -113,19 +66,6 @@
     }
     .discman{
       @include user-select(none !important);
-    }
-    svg{
-      max-width: 100%;
-      color: white !important;
-      .path{
-        @include transform(translate3d(0,0,0));
-        // stroke-dasharray: 10;
-        // stroke-dashoffset: 10;
-        // @include animation(dash 10s linear infinite);
-        // @include animation-direction(alternate-reverse);
-        stroke-width: 1px;
-        stroke: white;
-      }
     }
     img{
       @include user-select(none !important);
@@ -184,7 +124,6 @@
     @include display(flex);
     @include flex-direction(row);
     @include align-items(center);
-    // @include transform(translate3d(0,-60%,0));
 
     li{
       display: inline-block;
@@ -353,14 +292,14 @@
               line-height: 0.9;
               color: black;
               left: 0;
-              width: 90%;
+              width: 80%;
               height: auto;
               padding: 0;
               border-radius: 5px;
               text-transform: none;
-              font-weight: normal;
+              font-weight: bold;
               letter-spacing: -1px;
-              font-family: 'Clan', arial, sans-serif;
+              font-family: 'Inconsolata', 'Clan', arial, sans-serif;
               &.num-order{
                 font-size: 2em;
                 font-weight: bold;
@@ -386,11 +325,41 @@
     h3{
       color: white;
       font-size: 0.8em;
-      font-family: 'Clan', 'Karla';
+      font-family: 'Inconsolata';
       font-weight: normal;
       text-transform: uppercase;
       @include animation(fade 1s linear infinite);
       @include animation-direction(alternate-reverse);
+    }
+  }
+
+  .current-song{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 3;
+    letter-spacing: 1px;
+    -webkit-font-smoothing: antialiased;
+    width: 50%;
+    display: block;
+    color: white;
+    font-family: 'Inconsolata';
+    font-weight: normal;
+    a{
+      color: white;
+      text-decoration: none;
+      @include transition(all .2s linear);
+      h3{
+        font-family: 'Inconsolata';
+        font-weight: normal;
+        font-size: 0.8em;
+        span{
+          margin: 0 10px;
+        }
+        &:hover{
+          color: gray;
+        }
+      }
     }
   }
 }

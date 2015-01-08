@@ -41,7 +41,7 @@
     height: auto;
     background: $pink;
     color:white;
-    z-index: 9;
+    z-index: 4;
     text-align: center;
     @include display(flex);
     @include flex-direction(column);
@@ -68,12 +68,26 @@
         font-size: 1em;
       }
     }
+    h2{
+      letter-spacing: -1px;
+      width: 90%;
+      margin-bottom: 40px;
+      font-weight: normal;
+      font-family: 'Inconsolata';
+      @include transition(transform .2s linear);
+      a{
+        color: white;
+        text-decoration: none;
+      }
+      &:hover{
+        @include transform(scale(1.05));
+      }
+    }
     h3{
       font-weight: normal;
       width: 70%;
       font-size: 0.7em;
       letter-spacing: -0.5px;
-      margin-bottom: 40px;
       @media (max-width: $tab){
         font-size: 0.6em;
       }

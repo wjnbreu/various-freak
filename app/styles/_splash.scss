@@ -27,6 +27,7 @@
         display: inline-block;
         line-height: 1.5;
         margin: 10px;
+        font-family: 'Karla';
         a{
           text-decoration: none;
           @include animation(fade 1s linear infinite);

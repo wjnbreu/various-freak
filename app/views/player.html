@@ -1,3 +1,5 @@
+
+
 <div class="loading-container" ng-if="!ready">
   <section class="loading-text-container">
     <h1 class="fa fa-circle-o-notch fa-spin"></h1>
@@ -6,6 +8,7 @@
 
 
 <div class="main-frame" mousewheel>
+  <div ng-include="'partials/_nav.html'"></div>
    <div id="big-cursor" big-hand><img src="images/hand2.png" /></div>
 
   
@@ -18,7 +21,7 @@
       <img src="images/cdj.png" ng-show="!globalSongPlaying" draggable="false"/>
       <img src="images/cdj-play.png" ng-show="globalSongPlaying" draggable="false"/>
     </div>
-    <div class="current-song" ng-if="currentSong.download"><a ng-href="{{currentSong.download}}" download><span class="fa fa-cloud-download"></span>{{currentSong.title}}</a></div>
+    
   </section>
 
 
@@ -61,6 +64,14 @@
   <div class="drag-instructions">
     <h3>– Drag a disc into the player –</h3>
   </div>
+
+  <div class="current-song" ng-if="currentSong.title" current-song><a ng-href="{{currentSong.download}}" download>
+    <h3>
+      {{currentSong.title}}<span class="fa fa-cloud-download"></span>
+    </h3></a>
+  </div>
+
+
 </div>
 
 

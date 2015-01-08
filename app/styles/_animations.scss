@@ -1,0 +1,53 @@
+@include keyframes(fadeOut){
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+	}
+}
+
+@include keyframes(fadeIn){
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+
+@include keyframes(spin){
+  from{
+    @include transform(rotate(0deg));
+  }
+  to{
+    @include transform(rotate(360deg));
+  }
+}
+
+@include keyframes(dash){
+  to{
+    stroke-dashoffset: 0;
+  }
+}
+
+@include keyframes(rotate){
+  from{
+    @include transform(rotateY(0deg));
+  }
+  to{
+    @include transform(rotateY(360deg));
+  }
+}
+
+
+
+
+.view.ng-enter{
+	@include animation(fadeIn 0.3s linear);
+}
+
+.view.ng-leave{
+	@include animation(fadeOut 0.3s linear);
+}
+

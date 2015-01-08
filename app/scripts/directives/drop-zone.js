@@ -59,14 +59,16 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', 'soundcl
 
 				//grab song id from id of element
 				var songId = disc.attr('id');
-				console.log(songId);
 
 				var playingItem = $('#' + songId);
+
+
 				playingItem.find('.cd-spin').addClass('currently-playing');
 				
-				//use soundcloud directive api
 				soundcloudService.playSong(songId);
 
+				
+				///get track info
 				soundcloudService.getInfo(songId).then(function(data){
 					console.log(data);
 					$scope.currentSong.title = data.title;
