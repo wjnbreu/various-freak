@@ -41,22 +41,34 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
     //set up soundcloud player
     init: function(playlistId, secret){
       var self = this;
-      self.secret = secret;
       var deferred = $q.defer();
 
       SC.initialize({
         client_id: self.clientId
       });
 
+      if (secret){
+        self.secret = secret;
+        //after init, get all VA set songs
+        SC.get('/users/' + self.userId + '/playlists/' + playlistId + '?secret_token=' + secret, function(playlist){
+          self.tracks = playlist.tracks;
+          deferred.resolve(self.tracks);
+          self.loadPlayer();
 
-      //after init, get all VA set songs
-      SC.get('/users/' + self.userId + '/playlists/' + playlistId + '?secret_token=' + secret, function(playlist){
-        self.tracks = playlist.tracks;
-        console.log(playlist);
-        deferred.resolve(self.tracks);
-        self.loadPlayer();
+        });
+      }
 
-      });
+      else{
+        SC.get('/users/' + self.userId + '/playlists/' + playlistId, function(playlist){
+          self.tracks = playlist.tracks;
+          deferred.resolve(self.tracks);
+          self.loadPlayer();
+        });
+      }
+
+    
+
+      
 
       return deferred.promise;
     },
@@ -69,9 +81,6 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
       
       SC.stream('/tracks/' + self.tracks[0].id, self.options, function(song){
         self.currentSong = song;
-        soundManager.setup({
-          preferFlash: false
-        });
       });
     },
 
@@ -84,16 +93,29 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
       //stop all other players
       soundManager.stopAll();
 
-      //get song
-      SC.stream('/tracks/' + songId + '?secret_token=' + self.secret, self.options, function(song){
-        self.songObject = song;
-        song.play();
+      if (self.secret){
+        //get song
+        SC.stream('/tracks/' + songId + '?secret_token=' + self.secret, self.options, function(song){
+          self.songObject = song;
+          song.play();        
+          //change color of play button from drop zone
+          $rootScope.$broadcast('songStarted', songId);
+          
+        });
+      }
 
-                
-        //change color of play button from drop zone
-        $rootScope.$broadcast('songStarted', songId);
-        
-      });
+      else{
+        //get song
+        SC.stream('/tracks/' + songId, self.options, function(song){
+          self.songObject = song;
+          song.play();        
+          //change color of play button from drop zone
+          $rootScope.$broadcast('songStarted', songId);
+          
+        });
+      }
+
+      
     },
 
 
@@ -117,10 +139,19 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
       var deferred = $q.defer();
 
-      SC.get('/tracks/' + songId + '?secret_token=' + self.secret, function(song){
+      if (self.secret){
+        SC.get('/tracks/' + songId + '?secret_token=' + self.secret, function(song){
+          deferred.resolve(song);
+        });
+      }
 
-        deferred.resolve(song);
-      });
+      else{
+        SC.get('/tracks/' + songId, function(song){
+          deferred.resolve(song);
+        });
+      }
+
+      
 
       return deferred.promise;
     }

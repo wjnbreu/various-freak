@@ -19,7 +19,6 @@ angular.module('variousAssetsApp').directive('dropZone', ['$rootScope', 'soundcl
 
 
 		$scope.playPauseSong = function(){
-			console.log('sclick');
 			if ($scope.globalSongPlaying){
 				soundcloudService.pauseSong();
 				$scope.globalSongPlaying = false;
