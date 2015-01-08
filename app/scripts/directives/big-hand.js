@@ -9,6 +9,7 @@
 angular.module('variousAssetsApp').directive('bigHand', function () {
 	
 	var link = function($scope, element){
+		
 		$("html,body").mousemove(function(e) {
 	        var tarX = e.pageX;
 	        var tarY = e.pageY;
