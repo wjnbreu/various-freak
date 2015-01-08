@@ -1,5 +1,7 @@
 'use strict';
 
+/* global soundManager:false */
+
 /**
  * @ngdoc service
  * @name variousAssetsApp.soundcloudService
@@ -24,7 +26,9 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
     //options for soundcloud player
     options: {
-      volume: 90,
+      volume: 100,
+      preferFlash: false,
+      useHTML5Audio: true,
       onFinish: function(){
         $rootScope.$broadcast('songEnded');
       }
@@ -44,9 +48,11 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
         client_id: self.clientId
       });
 
+
       //after init, get all VA set songs
       SC.get('/users/' + self.userId + '/playlists/' + playlistId + '?secret_token=' + secret, function(playlist){
         self.tracks = playlist.tracks;
+        console.log(playlist);
         deferred.resolve(self.tracks);
         self.loadPlayer();
 
@@ -61,8 +67,11 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
     loadPlayer: function(){
       var self = this;
       
-      SC.stream('/tracks/' + self.tracks[0].id, function(song){
+      SC.stream('/tracks/' + self.tracks[0].id, self.options, function(song){
         self.currentSong = song;
+        soundManager.setup({
+          preferFlash: false
+        });
       });
     },
 
