@@ -48,4 +48,8 @@ angular.module('variousAssetsApp').controller('PlayerCtrl', [
 			src = src + 't500x500.jpg';
 			return $sce.trustAsResourceUrl(src + '?client_id=' + $scope.client);
 		}
+
+		$scope.goto = function(path){
+			$location.path(path);
+		};
 }]);

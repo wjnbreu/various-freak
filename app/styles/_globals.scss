@@ -43,11 +43,11 @@ h1,h2,h3{
   z-index: 999;
   position: fixed !important;
   top: 15px;
-  right: 15px;
+  right: 0;
   width: 127px;
   height:32px;
   @media (max-width: $phone){
-    top: 5px;
+    top: 7px;
   }
 }
 
@@ -55,7 +55,7 @@ h1,h2,h3{
   z-index: 999;
   position: fixed !important;
   top: 15px;
-  right: 115px;
+  right: 100px;
   height: 32px;
   width: 32px;
   @media (max-width: $phone){

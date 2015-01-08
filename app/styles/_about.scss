@@ -1,0 +1,90 @@
+.about-section{
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	position: absolute;
+	background: white;
+	.exit{
+		width: 40px;
+		height: 40px;
+		top: 10px;
+		left: 20px;
+		position: fixed;
+		background: url(../images/close2.svg) no-repeat center center;
+		background-size: contain;
+		@include transition(all .2s linear);
+		&:hover{
+			@include transform(scale(1.1));
+		}
+	}
+	.about-intro{
+		margin-top: 50px;
+		width: 70%;
+		margin-left: 15%;
+		position: relative;
+		@media (min-width: $widescreen ){
+			width: 50%;
+			margin-left: 25%;
+		}
+		@media (max-width: $phone){
+			width: 90%;
+			margin-left: 5%;
+		}
+		h1{
+			font-weight: bold;
+			letter-spacing: -2px;
+			-webkit-font-smoothing: antialiased;
+			font-size: 4em;
+			line-height: 1;
+			@media (min-width: $widescreen){
+				font-size: 6em;
+			}
+			@media (max-width: $tab){
+				font-size: 3em;
+			}
+			@media (max-width: $phone){
+				font-size: 2em;
+			}
+		}
+		h2{
+			color: $pink;
+		}
+		p{
+			line-height: 1.5;
+			font-family: 'Maison', 'Inconsolata', 'Karla', 'Clan';
+			font-weight: normal;
+			-webkit-font-smoothing: antialiased;
+			a{
+				color: $pink;
+			}
+			@media (max-width: $phone){
+				font-size: 0.9em;
+			}
+
+		}
+		img{
+			max-width: 100%;
+			width: 100%;
+			height: auto;
+			margin: 0;
+			margin-top: 30px;
+			margin-bottom: 40px;
+		}
+		.credits{
+			margin-top: 40px;
+			margin-bottom: 100px;
+			p{
+				font-weight: lighter;
+				-webkit-font-smoothing: antialiased;
+				margin-bottom: 40px;
+				color: $pink;
+				strong{
+					color: black;
+					span{
+						font-weight: lighter;
+					}
+				}
+			}
+		}
+	}
+}

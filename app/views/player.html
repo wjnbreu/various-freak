@@ -28,14 +28,11 @@
   <section class="grid" id="grid" soundcloud-stuff playlist='69964527' secret='s-pGXST'>
     <ul class="list-wrapper" id="list-wrapper">
       <!-- TO-DO: Add AWS download link -->
-      <li class="full-album">
-        <a href="#">
+      <li class="full-album" ng-click="goto('/about')">
           <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" draggable="false"/>
           <div class="download-text">
-            <h3 class="download-text-title">DOWNLOAD ALL</h3>
-            <h3 class="fa fa-cloud-download"></h3>
+            <h3 class="download-text-title">ABOUT</h3>
           </div>
-        </a>
       </li>
 
       <li class="song-list" ng-repeat="track in tracks" measure-list list-width="255" list-padding="235" index="{{$index}}">

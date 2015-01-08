@@ -27,6 +27,13 @@
   left: 50%;
   margin: -40em 0 0 -40em;
   @include animation(rotate 10s linear infinite);
+  @media (min-width: $widescreen){
+    width: 100em;
+    height: 100em;
+    top: 50%;
+    left: 50%;
+    margin: -50em 0 0 -50em;
+  }
 }
 .shape {
   top: 50%;
@@ -96,7 +103,12 @@
   opacity:1;
   width:21.06em;
   height:18em;
-  margin:-9em 0 0 -9em;
+  margin:-9em 0 0 -10.72em;
+  @media (min-width: $widescreen){
+    width: 25em;
+    height: 21.36em;
+    margin: -10.72em 0 0 -12.5em;
+  }
   @media (max-width: $phone){
     width: 11.7em;
     height: 10em;
@@ -112,6 +124,10 @@
 .cub-1 .rt, .cub-1 .lt {
   width:0.8em;
   height:18em;
+  @media (min-width: $widescreen){
+    width: 1em;
+    height: 21.36em;
+  }
   @media (max-width: $phone){
     width: 0.5em;
     height: 10em;
@@ -120,6 +136,10 @@
 .cub-1 .tp, .cub-1 .bm {
   width:21.06em;
   height:0.8em;
+   @media (min-width: $widescreen){
+    width: 25em;
+    height: 1em;
+  }
   @media (max-width: $phone){
     width: 11.7em;
     height: 0.5em;
