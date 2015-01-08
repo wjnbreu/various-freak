@@ -20,34 +20,16 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', '$time
 		var maxWidth;
 		var lastScroll = 0;
 		var bufferSpace = 600;
-		var prefix;
 		var box = item.getBoundingClientRect();
 		var boxPos = box.left;
 
 	
-	$rootScope.$on('listWidth', function(msg, data){
-			maxWidth = data;
-	});
+		$rootScope.$on('listWidth', function(msg, data){
+				maxWidth = data;
+		});
 
-
-	var bounceFlag = false;
-
-		prefix = $scope.browser + 'transform';
 		
 		maxWidth = $scope.listWidth;
-
-
-		
-
-
-		var runBounce = function(target){
-			if (bounceFlag === false){
-				setTimout(function(){
-				},1000);
-
-			}
-			
-		};
 		
 
 		element.mousewheel(function(event){
@@ -85,8 +67,6 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', '$time
 
 
 
-
-
 			//if user is scrolling sideways
 			if (Math.abs(event.deltaX) > Math.abs(event.deltaY)){
 				scrollPos -= Math.floor(event.deltaX);
@@ -112,7 +92,6 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', '$time
 			}
 			
 		});
-		
 
 	};
 

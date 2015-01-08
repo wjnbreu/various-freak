@@ -12,7 +12,6 @@ angular.module('variousAssetsApp').directive('currentSong', ['$rootScope', 'soun
 
 		//on song start, update info
 		$rootScope.$on('songStarted', function(msg, songId){
-			console.log(songId);
 
 			//get info from soundcloud service
 			soundcloudService.getInfo(songId).then(function(data){

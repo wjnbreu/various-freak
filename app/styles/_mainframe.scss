@@ -1,6 +1,3 @@
-
-
-
 .main-frame{
 	position: fixed;
 	top: 0;
@@ -10,8 +7,6 @@
   background-size: contain;
 	overflow: hidden;
   z-index: 3;
-
-
 
   .background{
     position: absolute;
@@ -129,7 +124,8 @@
       display: inline-block;
       padding: 10px;
       margin-right: 255px;
-      // background: black;
+      margin-left: -20px;
+      left: 0;
       font-size: 16px;
       width: 255px;
       height: 255px;
@@ -148,7 +144,6 @@
         }
       }
       &.full-album{
-         
          &:hover{
           .download-text{
             text-align: center;
@@ -173,16 +168,20 @@
           background: rgba(0,0,0,0.6);
           border-radius: 2px;
           color: white;
+          font-family: 'Inconsolata';
           @include flex-direction(column);
           @include justify-content(center);
           @include align-items(center);
           h3{
-            display: block;
             font-size: 2em;
             font-weight: normal;
             margin: 0;
             width: 90%;
-            margin-bottom: 10px;
+            
+            &.download-text-title{
+              font-family: 'Inconsolata';
+              margin-bottom: 10px;
+            }
           }
         }
       }
@@ -336,9 +335,8 @@
   .current-song{
     position: absolute;
     bottom: 20px;
-    left: 20px;
+    left: 10px;
     z-index: 99;
-    letter-spacing: 1px;
     -webkit-font-smoothing: antialiased;
     width: 50%;
     display: block;

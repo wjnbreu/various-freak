@@ -49,6 +49,18 @@
   }
 }
 
+@include keyframes(randomshake){
+  0%{
+    @include transform(rotateY(0deg));
+  }
+  50%{
+    @include transform(rotateY(180deg));
+  }
+  100%{
+    @include transform(rotateY(0deg));
+  }
+}
+
 
 
 

@@ -1,4 +1,3 @@
-
 .logo{
     position: fixed;
     top: 0;
@@ -72,8 +71,8 @@
         @include smallboxy();
         @include transition(all .1s linear);
         &:active, &:hover{
-          @include vendorize(transform, translate(3px,3px));
-          @include vendorize(box-shadow, none);
+          @include transform(translate(3px, 3px));
+          box-shadow: none;
         }
         a{
           color: black;
