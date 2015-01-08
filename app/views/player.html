@@ -65,7 +65,7 @@
     <h3>– Drag a disc into the player –</h3>
   </div>
 
-  <div class="current-song" ng-if="currentSong.title" current-song><a ng-href="{{currentSong.download}}" download>
+  <div class="current-song" ng-show="currentSong.title" current-song><a ng-href="{{currentSong.download}}" download>
     <h3>
       {{currentSong.title}}<span class="fa fa-cloud-download"></span>
     </h3></a>

@@ -42,7 +42,6 @@ angular.module('variousAssetsApp').directive('soundcloudStuff', [
 			soundcloudService.init(playlistId, secret).then(function(data){
 				
 				$scope.tracks = data;
-				console.log($scope.tracks);
 
 				//get ref to artwork using first track in array as parent
 				var artwork = data[0].artwork_url;
