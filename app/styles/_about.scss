@@ -9,6 +9,7 @@
 		height: 40px;
 		top: 10px;
 		left: 20px;
+		z-index: 999;
 		position: fixed;
 		background: url(../images/close2.svg) no-repeat center center;
 		background-size: contain;
@@ -29,6 +30,7 @@
 		@media (max-width: $phone){
 			width: 90%;
 			margin-left: 5%;
+			margin-top: 75px;
 		}
 		h1{
 			font-weight: bold;
