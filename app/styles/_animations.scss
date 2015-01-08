@@ -42,10 +42,10 @@
 
 @include keyframes(rotate){
   from{
-    @include transform(rotateY(0deg));
+    @include transform(rotateY(0deg) rotateZ(0deg));
   }
   to{
-    @include transform(rotateY(360deg));
+    @include transform(rotateY(360deg) rotateZ(0deg));
   }
 }
 

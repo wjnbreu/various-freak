@@ -94,11 +94,11 @@
 .cub-1 {
   @include transform(translate3D(0.0625em, -0.0625em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg));
   opacity:1;
-  width:18em;
+  width:21.06em;
   height:18em;
   margin:-9em 0 0 -9em;
   @media (max-width: $phone){
-    width: 10em;
+    width: 11.7em;
     height: 10em;
     margin: -5em 0 0 -5em;
   }
@@ -118,10 +118,10 @@
   }
 }
 .cub-1 .tp, .cub-1 .bm {
-  width:18em;
+  width:21.06em;
   height:0.8em;
   @media (max-width: $phone){
-    width: 10em;
+    width: 11.7em;
     height: 0.5em;
   }
 
@@ -130,8 +130,12 @@
   background-color:#6c6c6c;
 }
 .cub-1 .ft {
-  background:url(https://s3.amazonaws.com/blank-canvas/va-front.jpg);
+  background:url(https://s3.amazonaws.com/various-assets-web/va-front.jpg);
 }
 .cub-1 .bk {
-  background:url(https://s3.amazonaws.com/blank-canvas/va-back.jpg);
+  background:url(https://s3.amazonaws.com/various-assets-web/va-back.jpg);
+}
+
+.cub-1 .rt {
+  background:url(https://s3.amazonaws.com/various-assets-web/va-spine.jpg);
 }
