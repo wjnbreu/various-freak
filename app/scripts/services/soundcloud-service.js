@@ -78,10 +78,14 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
     //loads up a first song as default so player is ready
     loadPlayer: function(){
       var self = this;
+      var deferred = $q.defer();
       
       SC.stream('/tracks/' + self.tracks[0].id, self.options, function(song){
         self.currentSong = song;
+        deferred.resolve(song);
       });
+
+      return deferred.promise;
     },
 
 
@@ -119,10 +123,29 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
     },
 
 
-
+    //used for route changes
     stopSongs: function(){
-      soundManager.stopAll();
-      $rootScope.$broadcast('songEnded', song);
+
+      var self = this;
+
+      //make sure soundManager is defined since we might be on diff route
+      if (typeof soundManager !== 'undefined'){
+        soundManager.stopAll();
+        $rootScope.$broadcast('songEnded');
+      }
+
+      else{
+        //init player, on promise fulfilled, load player in order to create soundmanager object
+        self.init().then(function(data){
+          self.loadPlayer().then(function(data){
+            soundManager.stopAll();
+            $rootScope.$broadcast('songEnded');
+          });
+          
+
+        });
+      }
+      
     },
 
 
@@ -173,6 +196,10 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
     pauseSong: function(){
       return player.pauseSong();
+    },
+
+    stopSongs: function(){
+      return player.stopSongs();
     },
 
     resumeSong: function(){

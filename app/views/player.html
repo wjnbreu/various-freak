@@ -28,12 +28,12 @@
   <section class="grid" id="grid" soundcloud-stuff playlist='69964527' secret='s-pGXST'>
     <ul class="list-wrapper" id="list-wrapper">
       <!-- TO-DO: Add AWS download link -->
-      <li class="full-album" ng-click="goto('/about')">
+      <!-- <li class="full-album" ng-click="goto('/about')">
           <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" draggable="false"/>
           <div class="download-text">
             <h3 class="download-text-title">ABOUT</h3>
           </div>
-      </li>
+      </li> -->
 
       <li class="song-list" ng-repeat="track in tracks" measure-list list-width="255" list-padding="235" index="{{$index}}">
         <div class="flip-container">
@@ -59,7 +59,7 @@
   </section>
 
   <div class="drag-instructions">
-    <h3>– Drag a disc into the player –</h3>
+    <h3>– Scroll and Drag a disc into the player –</h3>
   </div>
 
   <div class="current-song" ng-show="currentSong.title" current-song><a ng-href="{{currentSong.download}}" download>

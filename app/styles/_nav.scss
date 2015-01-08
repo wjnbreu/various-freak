@@ -4,10 +4,10 @@
     left: 0;
     width: 150px;
     height: auto;
-    background: $pink;
     color:white;
     z-index: 4;
     text-align: center;
+    margin: 0;
     @include display(flex);
     @include flex-direction(column);
     -webkit-font-smoothing: antialiased;
@@ -18,8 +18,8 @@
     }
     img{
       position: relative;
-      max-width: 80%;
-      width: 80%;
+      max-width: 100%;
+      width: 100%;
       height: auto;
       margin: 0;
     }
@@ -34,18 +34,30 @@
       }
     }
     h2{
+      margin: 0;
+      margin-top: 2px;
+      background: $pink;
+      padding: 15px 0;
       letter-spacing: -1px;
-      width: 90%;
-      margin-bottom: 40px;
-      font-weight: normal;
-      font-family: 'Inconsolata';
-      @include transition(transform .2s linear);
+      width: 100%;
+      line-height: 1;
+      font-weight: bold;
+      font-size: 1em;
+      font-family: 'Clan', 'Inconsolata';
+      @include transition(all .2s linear);
+      &.first{
+        margin-top: -2px;
+      }
       a{
         color: white;
         text-decoration: none;
       }
       &:hover{
-        @include transform(scale(1.05));
+        background: white;
+        color: black;
+        a{
+          color: black;
+        }
       }
     }
     h3{

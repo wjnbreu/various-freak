@@ -36,7 +36,7 @@ angular.module('variousAssetsApp').directive('measureList', ['$rootScope', '$win
 			var fullWidth = listWidth + listPadding;
 
 			//since last item is not indluced in index, add one. HOWEVER, we don't actually since first item is not counted (cover art)
-			var fullListWidth = (fullWidth * index) + (fullWidth * 2);
+			var fullListWidth = (fullWidth * index) + (fullWidth * 1);
 	
 			
 			$scope.listWidth = fullListWidth;

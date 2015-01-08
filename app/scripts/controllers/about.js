@@ -7,10 +7,12 @@
  * # AboutCtrl
  * Controller of the variousAssetsApp
  */
-angular.module('variousAssetsApp').controller('AboutCtrl', function ($scope, $location) {
+angular.module('variousAssetsApp').controller('AboutCtrl', ['$scope', '$location', 'soundcloudService', function ($scope, $location, soundcloudService) {
+
+	soundcloudService.stopSongs();
 
 	$scope.goto = function(path){
-			$location.path(path);
-		};
-});
+		$location.path(path);
+	};
+}]);
 

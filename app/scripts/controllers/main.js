@@ -10,8 +10,12 @@
 angular.module('variousAssetsApp').controller('MainCtrl', [
 	'$scope',
 	'$location',
-	function ($scope, $location) {
+	'soundcloudService',
+	function ($scope, $location, soundcloudService) {
 
+		
+		soundcloudService.stopSongs();
+		
 		$scope.goto = function(path){
 			$location.path(path);
 		};
