@@ -7,12 +7,30 @@
 	}
 }
 
+@include keyframes(dropup){
+	from{
+		@include transform(translateY(0) translateZ(0));
+	}
+	to{
+		@include transform(translateY(-55px) translateZ(0));
+	}
+}
+
 @include keyframes(dropdownsmall){
 	from{
 		@include transform(translateY(-15px) translateZ(0));
 	}
 	to{
 		@include transform(translateY(0) translateZ(0));
+	}
+}
+
+@include keyframes(dropupsmall){
+	from{
+		@include transform(translateY(0) translateZ(0));
+	}
+	to{
+		@include transform(translateY(-75px) translateZ(0));
 	}
 }
 
@@ -34,10 +52,13 @@
 		position: fixed;
 		background: url(../images/close2.svg) no-repeat center center;
 		background-size: contain;
-		@include transition(all .2s linear);
+		@include transition(all .3s linear);
 		@include animation(dropdown .5s ease);
 		&:hover{
 			@include transform(scale(1.1));
+		}
+		&.remove-anim{
+			@include animation(dropup .5s ease);
 		}
 	}
 	.about-intro{
@@ -45,6 +66,10 @@
 		width: 70%;
 		margin-left: 15%;
 		position: relative;
+		@include animation(dropdownsmall .5s ease);
+		&.remove-anim{
+			@include animation(dropupsmall 1s ease);
+		}
 		@media (min-width: $widescreen ){
 			width: 50%;
 			margin-left: 25%;
@@ -60,7 +85,6 @@
 			-webkit-font-smoothing: antialiased;
 			font-size: 4em;
 			line-height: 1;
-			@include animation(dropdownsmall .5s ease);
 			@media (min-width: $widescreen){
 				font-size: 6em;
 			}
