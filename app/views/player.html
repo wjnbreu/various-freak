@@ -27,14 +27,6 @@
 
   <section class="grid" id="grid" soundcloud-stuff playlist='69964527' secret='s-pGXST'>
     <ul class="list-wrapper" id="list-wrapper">
-      <!-- TO-DO: Add AWS download link -->
-      <!-- <li class="full-album" ng-click="goto('/about')">
-          <img ng-src="{{tracks.artwork}}" alt="Various Assets Artwork" draggable="false"/>
-          <div class="download-text">
-            <h3 class="download-text-title">ABOUT</h3>
-          </div>
-      </li> -->
-
       <li class="song-list" ng-repeat="track in tracks" measure-list list-width="255" list-padding="235" index="{{$index}}">
         <div class="flip-container">
           <!--pass in song id as id to drop zone-->
@@ -43,9 +35,10 @@
               <img src="images/cd_logo.png" />
             </div>
             <div class="front">
+              <div class="spine">
+                <h3>{{$index + 1}}. {{track.title}}</h3>
+              </div>
               <div class="text-container">
-                <h3 class="num-order">{{$index + 1}}</h3>
-                <h3>{{track.title}}</h3>
               </div>
             </div>
           </div>
