@@ -11,13 +11,18 @@ angular.module('variousAssetsApp').controller('AboutCtrl', [
 	'$scope',
 	'$location',
 	'soundcloudService',
-	'historyService',
-	function ($scope, $location, soundcloudService, historyService) {
+	'creditsData',
+	function ($scope, $location, soundcloudService, creditsData) {
 
 	soundcloudService.stopSongs();
 
-	
+	creditsData.getData().then(function(data){
+		$scope.disc1 = data.data[0].disc1;
+		$scope.disc2 = data.data[1].disc2;
+	});
 
 	
+
+
 }]);
 

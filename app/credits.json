@@ -1,0 +1,216 @@
+[
+
+	{"disc1" : [
+		{
+			"order": "1.1",
+			"title": "Omotesando",
+			"artist": "Felix, Krizzli, Branko & Dre Skull",
+			"credits": "Written by Félix Dubois, Valentin Bersier, João Barbosa & Andrew Hershey. Produced by Felix, Krizzli, Branko, Dre Skull & Star Eyes. Instruments by Felix, Krizzli, Branko & Dre Skull."
+		},
+		{
+			"order": "1.2",
+			"title": "KYMA",
+			"artist": "Blinky Bill & Parachute Pulse",
+			"credits": "Written by Bill Sellanga & Ana Roman. Produced by Blinky Bill & Parachute Pulse. Instruments by Blinky Bill, Parachute Pulse & Dorian Concept."
+		},
+		{
+			"order": "1.3",
+			"title": "Stampede",
+			"artist": "Deltatron, Nightfeelings, LAO, Lafawndah & Ekali",
+			"credits": "Written by Paz Ferrand, Nicholas Weiss, Lauro Manuel Robles, Yasmine Dubois. Produced by Deltatron, Nightfeelings, LAO, Lafawndah & Ekali. Instruments by Deltatron, Lao, Nightfeelings & Lafawndah."
+		},
+		{
+			"order": "1.4",
+			"title": "Forever Breakfast",
+			"artist": "rj & Bienoise",
+			"credits": "Written by David Hofmann & Alberto Ricca. Produced by rj & Bienoise. Instruments by rj & Bienoise."
+		},
+		{
+			"order": "1.5",
+			"title": "Voyage",
+			"artist": "Douchka & Parachute Pulse",
+			"credits": "Written by Thomas Lucas, Ana Roman. Produced by Thomas Lucas. All instruments by Thomas Lucas."
+		},
+		{
+			"order": "1.6",
+			"title": "Fuji",
+			"artist": "Deradoorian",
+			"credits": "Written by Angel Deradoorian. Produced by Deradoorian. Instruments/Performances by Deradoorian & the two little birds at RBMA."
+		},
+		{
+			"order": "1.7",
+			"title": "The Bog Song",
+			"artist": "Mimu Merz & Daniel Limaverde",
+			"credits": "Written by Miriam Mone & Daniel Limaverde. Produced by Daniel Limaverde. Instruments by Daniel Limaverde."
+		},
+		{
+			"order": "1.8",
+			"title": "Female Receiver",
+			"artist": "Wild L8 Unpluggers",
+			"credits": "Written by Alejandro Paz, Alexandre Berly, Ollis Bergum, Marco Passarani & Alexia Taulé. Produced by Alejandro Paz, La Mverte, Olefunken & Marco Passarani. Synths by Alejandro Paz, La Mverte & Olefunken. Drums by Alejandro Paz, La Mverte & Marco Passarani. Additional production by Brigitte Laverne."
+		},
+		{
+			"order": "1.9",
+			"title": "RBMA Chop Up (Edit 1)",
+			"artist": "Fred",
+			"credits": "Written by Fred Gibson. Produced by Fred. Instruments by Fred."
+		},
+		{
+			"order": "1.10",
+			"title": "Edge",
+			"artist": "Parachute Pulse, Never Sol & Ah! Kosmos",
+			"credits": "Written by Ana Roman, Sara Vondraskova & Basak Günak. Produced by Parachute Pulse, Never Sol & Ah! Kosmos."
+		},
+		{
+			"order": "1.11",
+			"title": "Brap (Instrumental)",
+			"artist": "Krizzli",
+			"credits": "Written by Valentin Bersier. Instruments by Krizzli."
+		},
+		{
+			"order": "1.12",
+			"title": "One",
+			"artist": "Deradoorian, Nightfeelings & Dorian Concept",
+			"credits": "Written by Angel Deradoorian. Produced by Deradoorian, Nightfeelings. Instruments/Performances by Nightfeelings, Dorian Concept, Om’Mas Keith, Deradoorian & Never Sol."
+		},
+		{
+			"order": "1.13",
+			"title": "Kind of Aquarian",
+			"artist": "Tollcrane & Ipek Gorgun",
+			"credits": "Written by Talha Asim Wynne. Produced by Tollcrane. Instruments by Ipek Gorgun & Tollcrane."
+		},
+		{
+			"order": "1.14",
+			"title": "The Mayor’s Daughter",
+			"artist": "Mickey de Grand IV",
+			"credits": "Written by Ryan de Grandy. Produced by Mickey de Grand IV. All instruments by Mickey de Grand IV."
+		},
+		{
+			"order": "1.15",
+			"title": "Gundam Funk",
+			"artist": "Amuro & Rei",
+			"credits": "Written by Marco Passarani, Valerio Del Prete & Oliver Johnson. Produced by Marco Passarani & Valerio Del Prete. Synth and drums by Marco Passarani & Valerio Del Prete. Solo lead by Oliver Johnson. Additional vocals by Tomo Mizuno & Sheela Rahman."
+		},
+		{
+			"order": "1.16",
+			"title": "Kairos (Short Version)",
+			"artist": "Ipek Gorgun",
+			"credits": "Written by Sehnaz Ipek Gorgun. Produced by Ipek Gorgun. Instruments by Ipek Gorgun."
+		}
+		
+		]
+	},
+
+	{"disc2": [
+		{
+			"order": "2.1",
+			"title": "On Me",
+			"artist": "Ekali, Dorian Concept & Om’Mas Keith",
+			"credits": "Written by Om’Mas Keith, Oliver Johnson & Nathan Shaw. Produced by Om’Mas Keith, Oliver Johnson & Ekali. Instruments by Dorian Concept & Ekali."
+		},
+		{
+			"order": "2.2",
+			"title": "Dumplings",
+			"artist": "Valesuchi & Mark Maxwell",
+			"credits": "Written by Valentina Montalvo & Mark Maxwell. Produced by Valesuchi & Mark Maxwell. Instruments by Valesuchi & Mark Maxwell."
+		},
+		{
+			"order": "2.3",
+			"title": "Move",
+			"artist": "Lewis Cancut & Blinky Bill",
+			"credits": "Written by Lewis D Gittus & Bill Sellanga. Produced by Lewis Cancut. Instruments by Lewis Cancut."
+		},
+		{
+			"order": "2.4",
+			"title": "Tokyo Sunrise",
+			"artist": "Arenov & Tollcrane",
+			"credits": "Written by Arystan Arenov & Talha Asim Wynne. Produced by Arenov & Tollcrane. Instruments by Arenov & Tollcrane."
+		},
+		{
+			"order": "2.5",
+			"title": "Indecisio",
+			"artist": "Summer Disbray & Branko",
+			"credits": "Written by Summer Disbray & João Barbosa. Produced by Summer Disbray & Branko. Instruments by Branko."
+		},
+		{
+			"order": "2.6",
+			"title": "?",
+			"artist": "Nightfeelings, Torus, MMMOOONNNOOO, Ossie, Zebra Katz & Xosar",
+			"credits": "Written by Nicholas Weiss, Joeri Woudstra, Daniel Neves, Osita Aneke, Ojay Morgan & Sheela Rahman. Arrangement by Nightfeelings, MMMOOONNNOOO, Torus & Zebra Katz. Produced by Nightfeelings, MMMOOONNNOOO, Torus & Zebra Katz. Instruments by Nightfeelings, MMMOOONNNOOO, Torus, Ossie & Xosar. Recorded by Nightfeelings, MMMOOONNNOOO, Torus, Zebra Katz, Ossie & Xosar. Hidden Vocals by Zebra Katz."
+		},
+		{
+			"order": "2.7",
+			"title": "Latenight Munchies",
+			"artist": "Kadhja Bonet, rj & Mark Maxwell",
+			"credits": "Written by Kadhja Bonet, David Hofmann & Mark Maxwell. Produced by rj & Mark Maxwell. Instruments by rj & Mark Maxwell."
+		},
+		{
+			"order": "2.8",
+			"title": "Tokyo, October 23rd 2014 (Part 1)",
+			"artist": "Bosaina",
+			"credits": "Written by Bosaina El Kahal. Produced by Bosaina. Instruments by Bosaina."
+		},
+		{
+			"order": "2.9",
+			"title": "Nobody",
+			"artist": "L8tin Around",
+			"credits": "Written by Alejandro Paz, Alexandre Berly, Marco Passarani & Valerio Del Prete. Produced by Alejandro Paz, La Mverte, Marco Passarani & Valerio Del Prete. Synths by Alejandro Paz, La Mverte & Marco Passarani. Drums by Marco Passarani & Alejandro Paz. Additional rhythmical sessions by Valerio Del Prete."
+		},
+		{
+			"order": "2.10",
+			"title": "GYROCYRE",
+			"artist": "Xosar",
+			"credits": "Written by Sheela Rahman. Produced by Xosar. Instruments by Xosar."
+		},
+		{
+			"order": "2.11",
+			"title": "I Need It So Much",
+			"artist": "Tomo Jacob, sauce81 & Hiroaki OBA",
+			"credits": "Written by Tomo Mizuno, Nobuyuki Suzuki & Hiroaki Oba. Produced by Tomo Jacob, sauce81 & Hiroaki OBA. Vocals by sauce81."
+		},
+		{
+			"order": "2.12",
+			"title": "Special Place",
+			"artist": "Deltatron, Nightfeelings, Mickey de Grand IV & Lafawndah",
+			"credits": "Written by Paz Ferrand, Nicholas Weiss, Ryan de Grandy & Yasmine Dubois. Produced by Deltatron, Nightfeelings, Mickey de Grand IV & Lafawndah."
+		},
+		{
+			"order": "2.13",
+			"title": "Cold Intuition",
+			"artist": "Krizzli & WIFE",
+			"credits": "Written by Valentin Bersier & James Kelly. Produced by Krizzli. Instruments by Krizzli & WIFE."
+		},
+		{
+			"order": "2.14",
+			"title": "Starlight",
+			"artist": "Palms Trax, Mickey de Grand IV & Larry Gus",
+			"credits": "Written by Jay Donaldson, Ryan de Grandy & Panagiotis Melidis. Produced by Palms Trax, Mickey de Grand IV & Larry Gus. Instruments by Palms Trax, Mickey de Grand IV & Larry Gus. Recorded by Palms Trax, Mickey de Grand IV & Larry Gus."
+		},
+		{
+			"order": "2.15",
+			"title": "Finally",
+			"artist": "Boody",
+			"credits": "Written by Haldan Blecher. Produced by Boody. Instruments by Boody."
+		},
+		{
+			"order": "2.16",
+			"title": "Tokyo Is Calling",
+			"artist": "Haioka, Laura J Martin, Summer, Plasma Rüby, King Bruce, Cat500, Joe Wills & Ryu Kawashima",
+			"credits": "Written by Shintaro Haioka. Produced by Haioka & Joe Wills. Flute by Laura J Martin. Vocals by Laura J Martin & Summer Disbray. Percussion by King Bruce. Piano and synth strings by Plasma Rüby. Synth by Cat500. Programming and mixing by Haioka."
+		},
+		{
+			"order": "2.17",
+			"title": "Bubble With",
+			"artist": "Uio Loi",
+			"credits": "Written by Kyle Yerhot. Produced by Uio Loi. Instruments by Uio Loi."
+		},
+		{
+			"order": "2.18",
+			"title": "Deprivation",
+			"artist": "Christian Kroupa & dBridge",
+			"credits": "Written by Darren White & Kristjan Kroupa. Produced by dBridge & Christian Kroupa. Instruments by dBridge & Christian Kroupa."
+		}
+		
+	]
+	}
+]
