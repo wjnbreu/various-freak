@@ -3,13 +3,12 @@
 	@media (max-width: $tab){
 		display: block;
 		-webkit-overflow-scrolling: touch;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		overflow-y: scroll;
-		overflow-x: hidden;
+		overflow: hidden;
 		min-height: 100%;
 		background-size: cover;
 		.mobile-grid{
@@ -87,10 +86,12 @@
 	    left: 0;
 	    top: 0;
 	    width: 100%;
-	    height: 100%
+	    height: 100%;
+	    
 	    iframe, object, embed{
-	    	width: 100%;
-	    	height: 100%;
+	    	width: 96%;
+	    	margin: 5% 2%;
+	    	height: 90% !important;
 	    }
 	  }
 	  .side {
@@ -128,12 +129,14 @@
 	  .cub-1 {
 	    transform:translate3D(0em, 0em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 	    opacity:1;
-	    width:10em;
+	    width:16em;
 	    height:26em;
-	    margin:-13em 0 0 -5em;
+	    margin:-13em 0 0 -8em;
+	    border-radius: 50px;
 	  }
 	  .cub-1 .ft {
 	    transform:translateZ(0.5625em);
+	    background: $pink;
 	    
 	  }
 	  .cub-1 .bk {
@@ -145,13 +148,17 @@
 	  .cub-1 .rt, .cub-1 .lt {
 	    width:1.25em;
 	    height:26em;
+	    background: $pink;
 	  }
 	  .cub-1 .tp, .cub-1 .bm {
-	    width:10em;
+	    width:16em;
 	    height:1.25em;
+	    background: $pink;
 	  }
 	  .cub-1 .face {
 	    background-color:#FFFFFF;
+	    background: url(../images/brushed-metal.jpg) no-repeat center center;
+	    background-size: contain;
 	  }
 	}
 }

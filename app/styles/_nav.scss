@@ -16,6 +16,11 @@
       width: 100px;
       top: 0;
     }
+
+    @media (max-width: $phone){
+      width: 75px;
+      top: 0;
+    }
     img{
       position: relative;
       max-width: 100%;
@@ -32,6 +37,7 @@
       @media (max-width: $tab){
         font-size: 1em;
       }
+
     }
     h2{
       margin: 0;
@@ -45,6 +51,9 @@
       font-size: 1em;
       font-family: 'Clan', 'Inconsolata';
       @include transition(all .2s linear);
+      @media (max-width: $phone){
+        font-size: 0.8em;
+      }
       &.first{
         margin-top: -2px;
         padding: 0;
