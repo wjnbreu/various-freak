@@ -6,18 +6,34 @@
  * @description
  * # bigHand
  */
-angular.module('variousAssetsApp').directive('bigHand', function () {
+angular.module('variousAssetsApp').directive('bigHand', ['mousePosition', function (mousePosition) {
 	
-	var link = function($scope, element){
+	var link = function($scope, element, attrs){
+
+		var frame = $('#main-frame');
+
+		var pos = mousePosition.getPos();
+
+		var xPos = pos.x;
+		var yPos = pos.y;
+
+		//set initial css based on prev position
+		element.css({
+			left: xPos + 10,
+			top: yPos + 10
+		});
+
+		//now, listen for changes
+		frame.on('mousemove', function(e){
+			xPos = e.pageX;
+			yPos = e.pageY;
+			element.css({
+				left: xPos + 10,
+				top: yPos + 10
+			});
+		})
 		
-		$("html,body").mousemove(function(e) {
-	        var tarX = e.pageX;
-	        var tarY = e.pageY;
-	        element.css({
-	            top: tarY + 20,
-	            left : tarX + 20
-	        },0);
-	    });
+
 	}
 
 
@@ -25,4 +41,4 @@ angular.module('variousAssetsApp').directive('bigHand', function () {
 		restrict: 'A',
 		link: link
 	};
-});
+}]);
