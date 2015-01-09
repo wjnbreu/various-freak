@@ -277,7 +277,7 @@
             height: 80px;
             background: $pink;
             z-index: 4;
-            border-right: 1px solid black;
+            border-bottom: 1px solid black;
             @include box-sizing(border-box);
             @include display(flex);
             @include align-items(center);
