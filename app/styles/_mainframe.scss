@@ -291,16 +291,17 @@
             h3{
               font-size: 1.25em;
               line-height: 0.9;
-              color: black;
+              color: white;
               left: 0;
               width: 80%;
               height: auto;
               padding: 0;
               border-radius: 5px;
               text-transform: none;
-              font-weight: bold;
+              font-weight: normal;
               letter-spacing: -1px;
               font-family: 'Inconsolata', 'Clan', arial, sans-serif;
+              background: $pink;
               &.num-order{
                 font-size: 2em;
                 font-weight: bold;
