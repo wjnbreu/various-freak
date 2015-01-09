@@ -11,151 +11,156 @@
   height: 100%;
   background: transparent;
   font-size: 100%;
-
-}
-.face {
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
-}
-.scene, .shape, .face, .face-wrapper, .cr {
-  position: absolute;
-  @include transform-style(preserve-3d);
-}
-.scene {
-  width: 80em;
-  height: 80em;
-  top: 50%;
-  left: 50%;
-  margin: -40em 0 0 -40em;
-  @include animation(rotate 10s linear infinite);
-  @media (min-width: $widescreen){
-    width: 100em;
-    height: 100em;
+  .face {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+  }
+  .scene, .shape, .face, .face-wrapper, .cr {
+    position: absolute;
+    @include transform-style(preserve-3d);
+  }
+  .scene {
+    width: 80em;
+    height: 80em;
     top: 50%;
     left: 50%;
-    margin: -50em 0 0 -50em;
+    margin: -40em 0 0 -40em;
+    @include animation(rotate 10s linear infinite);
+    @media (min-width: $widescreen){
+      width: 100em;
+      height: 100em;
+      top: 50%;
+      left: 50%;
+      margin: -50em 0 0 -50em;
+    }
   }
-}
-.shape {
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  
-  @include transform-origin(50%);
-}
-.face, .face-wrapper {
-  overflow: hidden;
-  @include transform-origin(0 0);
-  @include backface-visibility(hidden);
+  .shape {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    
+    @include transform-origin(50%);
+  }
+  .face, .face-wrapper {
+    overflow: hidden;
+    @include transform-origin(0 0);
+    @include backface-visibility(hidden);
 
-  /* hidden by default, prevent blinking and other weird rendering glitchs */
-}
-.face {
-  background-size: 100% 100%!important;
-  background-position: center;
-}
-.face-wrapper .face {
-  left: 100%;
-  width: 100%;
-  height: 100%
-}
-.photon-shader {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%
-}
-.side {
-  left: 50%;
-}
-.cr, .cr .side {
-  height: 100%;
-}
-[class*="cuboid"] .ft, [class*="cuboid"] .bk {
-  width: 100%;
-  height: 100%;
-}
-[class*="cuboid"] .bk {
-  left: 100%;
-}
-[class*="cuboid"] .rt {
-  @include transform(rotateY(-90deg) translateX(-50%));
-}
-[class*="cuboid"] .lt {
-  @include transform(rotateY(90deg) translateX(-50%));
-}
-[class*="cuboid"] .tp {
-  @include transform(rotateX(90deg) translateY(-50%));
-}
-[class*="cuboid"] .bm {
-  @include transform(rotateX(-90deg) translateY(-50%));
-}
-[class*="cuboid"] .lt {
-  left: 100%;
-}
-[class*="cuboid"] .bm {
-  top: 100%;
-}
-/* .cub-1 styles */
-.cub-1 {
-  @include transform(translate3D(0.0625em, -0.0625em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg));
-  opacity:1;
-  width:21.06em;
-  height:18em;
-  margin:-9em 0 0 -10.72em;
-  @media (min-width: $widescreen){
-    width: 25em;
-    height: 21.36em;
-    margin: -10.72em 0 0 -12.5em;
+    /* hidden by default, prevent blinking and other weird rendering glitchs */
   }
-  @media (max-width: $phone){
-    width: 11.7em;
-    height: 10em;
-    margin: -5em 0 0 -5em;
+  .face {
+    background-size: 100% 100%!important;
+    background-position: center;
   }
-}
-.cub-1 .ft {
-  @include transform(translateZ(0.25em));
-}
-.cub-1 .bk {
-  transform:translateZ(-0.25em) rotateY(180deg);
-}
-.cub-1 .rt, .cub-1 .lt {
-  width:0.8em;
-  height:18em;
-  @media (min-width: $widescreen){
-    width: 1em;
-    height: 21.36em;
+  .face-wrapper .face {
+    left: 100%;
+    width: 100%;
+    height: 100%
   }
-  @media (max-width: $phone){
-    width: 0.5em;
-    height: 10em;
+  .photon-shader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%
   }
-}
-.cub-1 .tp, .cub-1 .bm {
-  width:21.06em;
-  height:0.8em;
-   @media (min-width: $widescreen){
-    width: 25em;
-    height: 1em;
+  .side {
+    left: 50%;
   }
-  @media (max-width: $phone){
-    width: 11.7em;
-    height: 0.5em;
+  .cr, .cr .side {
+    height: 100%;
+  }
+  [class*="cuboid"] .ft, [class*="cuboid"] .bk {
+    width: 100%;
+    height: 100%;
+  }
+  [class*="cuboid"] .bk {
+    left: 100%;
+  }
+  [class*="cuboid"] .rt {
+    @include transform(rotateY(-90deg) translateX(-50%));
+  }
+  [class*="cuboid"] .lt {
+    @include transform(rotateY(90deg) translateX(-50%));
+  }
+  [class*="cuboid"] .tp {
+    @include transform(rotateX(90deg) translateY(-50%));
+  }
+  [class*="cuboid"] .bm {
+    @include transform(rotateX(-90deg) translateY(-50%));
+  }
+  [class*="cuboid"] .lt {
+    left: 100%;
+  }
+  [class*="cuboid"] .bm {
+    top: 100%;
+  }
+  /* .cub-1 styles */
+  .cub-1 {
+    @include transform(translate3D(0.0625em, -0.0625em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg));
+    opacity:1;
+    width:21.06em;
+    height:18em;
+    margin:-9em 0 0 -10.72em;
+    @media (min-width: $widescreen){
+      width: 25em;
+      height: 21.36em;
+      margin: -10.72em 0 0 -12.5em;
+    }
+    @media (max-width: $phone){
+      width: 11.7em;
+      height: 10em;
+      margin: -5em 0 0 -5em;
+    }
+  }
+  .cub-1 .ft {
+    @include transform(translateZ(0.25em));
+  }
+  .cub-1 .bk {
+    transform:translateZ(-0.25em) rotateY(180deg);
+  }
+  .cub-1 .rt, .cub-1 .lt {
+    width:0.8em;
+    height:18em;
+    @media (min-width: $widescreen){
+      width: 1em;
+      height: 21.36em;
+    }
+    @media (max-width: $phone){
+      width: 0.5em;
+      height: 10em;
+    }
+  }
+  .cub-1 .tp, .cub-1 .bm {
+    width:21.06em;
+    height:0.8em;
+     @media (min-width: $widescreen){
+      width: 25em;
+      height: 1em;
+    }
+    @media (max-width: $phone){
+      width: 11.7em;
+      height: 0.5em;
+    }
+
+  }
+  .cub-1 .face {
+    background-color:#6c6c6c;
+  }
+  .cub-1 .ft {
+    background:url(https://s3.amazonaws.com/various-assets-web/va-front.jpg);
+  }
+  .cub-1 .bk {
+    background:url(https://s3.amazonaws.com/various-assets-web/va-back.jpg);
   }
 
-}
-.cub-1 .face {
-  background-color:#6c6c6c;
-}
-.cub-1 .ft {
-  background:url(https://s3.amazonaws.com/various-assets-web/va-front.jpg);
-}
-.cub-1 .bk {
-  background:url(https://s3.amazonaws.com/various-assets-web/va-back.jpg);
+  .cub-1 .rt {
+    background:url(https://s3.amazonaws.com/various-assets-web/va-spine.jpg);
+  }
 }
 
-.cub-1 .rt {
-  background:url(https://s3.amazonaws.com/various-assets-web/va-spine.jpg);
-}
+
+
+
+
+

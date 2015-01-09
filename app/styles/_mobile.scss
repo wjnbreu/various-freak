@@ -22,8 +22,6 @@
 			@include flex-direction(column);
 			@include align-items(center);
 			@include justify-content(center);
-			@include transform(rotate(2.5deg));
-			
 			iframe, object, embed{
 				display: block;
 				width: 60% !important;
@@ -32,7 +30,128 @@
 				margin-bottom: 100px;
 				@include animation(rotate 50s infinite);
 				@include animation-timing-function(linear);
+				@include animation-direction(alternate-reverse);
+				@include smallboxy();
 			}
 		}
+
+	}
+	#tridiv-sc {
+	    perspective: 800px;
+	    position: absolute;
+	    overflow: hidden;
+	    width: 100%;
+	    height: 100%;
+	    background: transparent;
+	    font-size: 100%;
+	  
+	  .face {
+	    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+	  }
+	  .scene, .shape, .face, .face-wrapper, .cr {
+	    position: absolute;
+	    transform-style: preserve-3d;
+	  }
+	  .scene {
+	    width: 80em;
+	    height: 80em;
+	    top: 50%;
+	    left: 50%;
+	    margin: -40em 0 0 -40em;
+	    // @include animation(rotate 20s linear infinite);
+	  }
+	  .shape {
+	    top: 50%;
+	    left: 50%;
+	    width: 0;
+	    height: 0;
+	    transform-origin: 50%;
+	  }
+	  .face, .face-wrapper {
+	    overflow: hidden;
+	    transform-origin: 0 0;
+	    backface-visibility: hidden;
+	    /* hidden by default, prevent blinking and other weird rendering glitchs */
+	  }
+	  .face {
+	    background-size: 100% 100%!important;
+	    background-position: center;
+	  }
+	  .face-wrapper .face {
+	    left: 100%;
+	    width: 100%;
+	    height: 100%
+	  }
+	  .photon-shader {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%
+	    iframe, object, embed{
+	    	width: 100%;
+	    	height: 100%;
+	    }
+	  }
+	  .side {
+	    left: 50%;
+	  }
+	  .cr, .cr .side {
+	    height: 100%;
+	  }
+	  [class*="cuboid"] .ft, [class*="cuboid"] .bk {
+	    width: 100%;
+	    height: 100%;
+	  }
+	  [class*="cuboid"] .bk {
+	    left: 100%;
+	  }
+	  [class*="cuboid"] .rt {
+	    transform: rotateY(-90deg) translateX(-50%);
+	  }
+	  [class*="cuboid"] .lt {
+	    transform: rotateY(90deg) translateX(-50%);
+	  }
+	  [class*="cuboid"] .tp {
+	    transform: rotateX(90deg) translateY(-50%);
+	  }
+	  [class*="cuboid"] .bm {
+	    transform: rotateX(-90deg) translateY(-50%);
+	  }
+	  [class*="cuboid"] .lt {
+	    left: 100%;
+	  }
+	  [class*="cuboid"] .bm {
+	    top: 100%;
+	  }
+	  /* .cub-1 styles */
+	  .cub-1 {
+	    transform:translate3D(0em, 0em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	    opacity:1;
+	    width:10em;
+	    height:26em;
+	    margin:-13em 0 0 -5em;
+	  }
+	  .cub-1 .ft {
+	    transform:translateZ(0.5625em);
+	    
+	  }
+	  .cub-1 .bk {
+	    transform:translateZ(-0.5625em) rotateY(180deg);
+	    background:url(https://s3.amazonaws.com/various-assets-web/va-front.jpg);
+	    background-size: contain;
+
+	  }
+	  .cub-1 .rt, .cub-1 .lt {
+	    width:1.25em;
+	    height:26em;
+	  }
+	  .cub-1 .tp, .cub-1 .bm {
+	    width:10em;
+	    height:1.25em;
+	  }
+	  .cub-1 .face {
+	    background-color:#FFFFFF;
+	  }
 	}
 }
