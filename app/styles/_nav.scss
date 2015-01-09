@@ -12,6 +12,17 @@
     @include flex-direction(column);
     -webkit-font-smoothing: antialiased;
     @include align-items(center);
+    .desk-nav{
+      @media (max-width: $tab){
+        display: none;
+      }
+    }
+    .mobile-nav{
+      display: none;
+      @media (max-width: $tab){
+        display: block;
+      }
+    }
     @media (max-width: $tab){
       width: 100px;
       top: 0;
