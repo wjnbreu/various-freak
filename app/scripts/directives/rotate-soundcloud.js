@@ -26,7 +26,7 @@ angular.module('variousAssetsApp').directive('rotateSoundcloud', function () {
 		hammertime.on('pan', function(ev){
 			for (var i = 0; i < props.length; i++){
 				prop = props[i];
-				object.style[prop] = "rotateX(" + ev.deltaY + "deg) rotateY(" + ev.deltaX + "deg) rotateZ(0deg)";
+				object.style[prop] = "rotateX(" + -ev.deltaY + "deg) rotateY(" + ev.deltaX + "deg) rotateZ(0deg)";
 			}
 			
 		});
