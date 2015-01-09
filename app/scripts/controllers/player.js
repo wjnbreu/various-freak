@@ -13,7 +13,8 @@ angular.module('variousAssetsApp').controller('PlayerCtrl', [
 	'$sce',
 	'$location',
 	'soundcloudService',
-	function ($scope, $rootScope, $sce,  $location, soundcloudService){
+	'historyService',
+	function ($scope, $rootScope, $sce,  $location, soundcloudService, historyService){
 
 		//used for spinner
 		$scope.ready = false;
@@ -21,6 +22,9 @@ angular.module('variousAssetsApp').controller('PlayerCtrl', [
 
 		//fake default width
 		$scope.listWidth = 15000;
+
+		//store ref to to this page for history
+		historyService.storePastLocation($location.path());
 		
 
 
