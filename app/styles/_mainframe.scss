@@ -289,8 +289,7 @@
               }
             }
             h3{
-              font-size: 1.25em;
-              line-height: 0.9;
+              line-height: 1;
               color: white;
               left: 0;
               width: 80%;
@@ -303,8 +302,10 @@
               letter-spacing: -1px;
               text-transform: uppercase;
 
-              font-family: 'Inconsolata', 'Clan', arial, sans-serif;
+              font-family: 'Maison', 'Inconsolata', 'Clan', arial, sans-serif;
               background: black;
+              font-size: 1em;
+              font-weight: bold;
               &.num-order{
                 font-size: 2em;
                 font-weight: bold;
