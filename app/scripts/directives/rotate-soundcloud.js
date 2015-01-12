@@ -70,8 +70,9 @@ angular.module('variousAssetsApp').directive('rotateSoundcloud', function () {
 		hammertime.on('panend', function(ev){
 			console.log(ev);
 			animRotateY = ev.deltaX;
+			
 			//start again
-			animLoop();
+			// animLoop();
 		});
 
 
