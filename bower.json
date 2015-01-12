@@ -16,7 +16,8 @@
     "bourbon": "~4.0.2",
     "jquery-ui": "~1.11.2",
     "angular-local-storage": "~0.1.5",
-    "hammer.js": "~2.0.4"
+    "hammer.js": "~2.0.4",
+    "jwerty": "~0.3.2"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

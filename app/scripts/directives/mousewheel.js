@@ -1,5 +1,5 @@
 'use strict';
-/* global $:false */
+/* global $:false, jwerty:false */
 
 /**
  * @ngdoc directive
@@ -20,8 +20,6 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', '$time
 		var maxWidth;
 		var lastScroll = 0;
 		var bufferSpace = 600;
-		var box = item.getBoundingClientRect();
-		var boxPos = box.left;
 
 	
 		$rootScope.$on('listWidth', function(msg, data){
@@ -30,16 +28,48 @@ angular.module('variousAssetsApp').directive('mousewheel', ['$rootScope', '$time
 
 		
 		maxWidth = $scope.listWidth;
+
+		function runKeyMove(){
+			if (scrollPos >  maxWidth - bufferSpace){
+				scrollPos = maxWidth - bufferSpace;
+			}
+
+			if (scrollPos < 0){
+				scrollPos = 0;
+			}
+
+			list.transition({
+				x: -scrollPos,
+				y: 0,
+				z: 0
+			},200);
+		}
+
+
+		//scrollin
+		jwerty.key('→', function(){
+
+			//255 width + 235 padding
+			scrollPos += 470;
+
+			runKeyMove();
+
+		});
+
+		//scrollin
+		jwerty.key('←', function(){
+
+			//255 width + 235 padding
+			scrollPos -= 470;
+
+			runKeyMove();
+
+		});
 		
 
 		element.mousewheel(function(event){
 			event.preventDefault();
-			
-			//get current pos of item
-			box = item.getBoundingClientRect();
-			boxPos = box.left;
-			
-			
+						
 
 			//if user is scrolling down
 			if (Math.abs(event.deltaY) > Math.abs(event.deltaX)){

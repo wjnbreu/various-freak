@@ -14,7 +14,18 @@ angular.module('variousAssetsApp').controller('AboutCtrl', [
 	'creditsData',
 	function ($scope, $location, soundcloudService, creditsData) {
 
-	soundcloudService.stopSongs();
+	var isPlaying = soundcloudService.isPlaying();
+
+	if (isPlaying){
+
+	}
+
+	else{
+		//just for safety, we kill all soundcloud references if the player is not already playing
+		soundcloudService.stopSongs();
+	}
+
+	
 
 	creditsData.getData().then(function(data){
 		$scope.disc1 = data.data[0].disc1;

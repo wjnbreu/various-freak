@@ -16,6 +16,8 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
    var player = {
     //globals
     currentlyPlaying: false,
+    
+    hasBeenInit: false,
 
     //current song Object
     songObject: {},
@@ -66,9 +68,8 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
         });
       }
 
-    
+      self.hasBeenInit = true;
 
-      
 
       return deferred.promise;
     },
@@ -101,7 +102,11 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
         //get song
         SC.stream('/tracks/' + songId + '?secret_token=' + self.secret, self.options, function(song){
           self.songObject = song;
-          song.play();        
+          song.play();
+
+
+          self.currentlyPlaying = true;
+
           //change color of play button from drop zone
           $rootScope.$broadcast('songStarted', songId);
           
@@ -112,7 +117,11 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
         //get song
         SC.stream('/tracks/' + songId, self.options, function(song){
           self.songObject = song;
-          song.play();        
+          song.play();
+
+          self.currentlyPlaying = true;
+
+
           //change color of play button from drop zone
           $rootScope.$broadcast('songStarted', songId);
           
@@ -131,6 +140,9 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
       //make sure soundManager is defined since we might be on diff route
       if (typeof soundManager !== 'undefined'){
         soundManager.stopAll();
+
+        self.currentlyPlaying = false;
+
         $rootScope.$broadcast('songEnded');
       }
 
@@ -139,13 +151,26 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
         self.init().then(function(data){
           self.loadPlayer().then(function(data){
             soundManager.stopAll();
+            
+            self.currentlyPlaying = false;
+
             $rootScope.$broadcast('songEnded');
           });
           
-
         });
       }
-      
+    },
+
+
+    isPlaying: function(){
+      var self = this;
+
+      return self.currentlyPlaying;
+    },
+
+    alreadyInit: function(){
+      var self = this;
+      return self.hasBeenInit;
     },
 
 
@@ -208,6 +233,17 @@ angular.module('variousAssetsApp').factory('soundcloudService', ['$q', '$rootSco
 
     getInfo: function(songId){
       return player.getInfo(songId);
+    },
+
+    isPlaying: function(){
+      return player.isPlaying();
+    },
+    alreadyInit: function(){
+      return player.alreadyInit();
+    },
+    getTracks: function(){
+      console.log(player.tracks);
+      return player.tracks;
     }
 
 
