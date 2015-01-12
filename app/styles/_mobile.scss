@@ -54,15 +54,18 @@
 			margin-left: 10px;
 			letter-spacing: -1px;
 			display: block;
-			font-size: 1em;
+			font-size: 2em;
 			line-height: 1;
 			margin-bottom: 0;
 			-webkit-font-smoothing: antialiased;
+			@media (max-width: $phone){
+				font-size: 1em;
+			}
 		}
 		
 		p{
 			display: block;
-			font-size: 0.6em;
+			font-size: 0.8em;
 			width: 90%;
 			color: white;
 			margin-right:5%;
@@ -71,6 +74,9 @@
 			-webkit-font-smoothing: antialiased;
 			margin-left: 10px;
 			margin-top: 0;
+			@media (max-width: $phone){
+				font-size: 0.6em;
+			}
 		}
 	}
 	
@@ -89,6 +95,7 @@
 	  .scene, .shape, .face, .face-wrapper, .cr {
 	    position: absolute;
 	    transform-style: preserve-3d;
+
 	  }
 	  .scene {
 	    width: 80em;
@@ -96,7 +103,6 @@
 	    top: 50%;
 	    left: 50%;
 	    margin: -40em 0 0 -40em;
-	    // @include animation(rotate 20s linear infinite);
 	  }
 	  .shape {
 	    top: 50%;
