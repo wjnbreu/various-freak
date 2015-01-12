@@ -35,21 +35,10 @@ angular.module('variousAssetsApp').directive('bigHand', ['mousePosition', functi
 		
 	}
 
-	var resolveTemplate = function(){
-		var ran = Math.round(Math.random());
-
-		if (ran === 1){
-			return '<img src="images/hand.png" />';
-		}
-		else{
-			return '<img src="images/hand2.png" />';
-		}
-	};
 
 
 	return {
 		restrict: 'A',
-		template: resolveTemplate,
 		link: link
 	};
 }]);
