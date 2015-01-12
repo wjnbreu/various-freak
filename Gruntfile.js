@@ -188,6 +188,20 @@ module.exports = function (grunt) {
       }
     },
 
+    'ftp-deploy':{
+      build:{
+        auth: {
+          host: 'ftp.microsites.redbull.com',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: 'dist/',
+        // dest: 'prod/www/',
+        dest: 'stage/www/',
+        exclusions: 'dist/tmp/'
+      }
+    },
+
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
