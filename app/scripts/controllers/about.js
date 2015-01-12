@@ -16,21 +16,20 @@ angular.module('variousAssetsApp').controller('AboutCtrl', [
 
 	var isPlaying = soundcloudService.isPlaying();
 
-	if (isPlaying){
-
-	}
-
-	else{
+	if (!isPlaying){
 		//just for safety, we kill all soundcloud references if the player is not already playing
 		soundcloudService.stopSongs();
 	}
 
-	
 
 	creditsData.getData().then(function(data){
 		$scope.disc1 = data.data[0].disc1;
 		$scope.disc2 = data.data[1].disc2;
 	});
+
+	$scope.goto = function(path){
+		$location.path(path);
+	};
 
 	
 

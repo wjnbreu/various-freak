@@ -42,6 +42,7 @@
 	height: auto;
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 	top: 0;
 	left: 0;
 	-webkit-overflow-scrolling: touch;
@@ -50,14 +51,19 @@
 	.exit{
 		width: 40px;
 		display: inline-block;
+		border: 5px solid black;
+		margin: 0;
+		padding: 0;
+		line-height: 1;
 		height: 40px;
 		top: 10px;
 		left: 20px;
 		z-index: 999;
 		position: fixed;
+		@include box-sizing(border-box);
 		background: url(../images/close2.svg) no-repeat center center;
-		background-size: contain;
-		@include transition(all .3s linear);
+		background-size: 120%;
+		@include transition(all .1s linear);
 		@include animation(dropdown .5s ease);
 		&:hover{
 			@include transform(scale(1.1));
@@ -68,8 +74,8 @@
 	}
 	.about-intro{
 		margin-top: 50px;
-		width: 70%;
-		margin-left: 15%;
+		width: 100%;
+		margin-left: 0;
 		position: relative;
 		@include animation(dropdownsmall .5s ease);
 		&.remove-anim{
@@ -86,10 +92,14 @@
 		}
 		h1{
 			font-weight: bold;
-			letter-spacing: -2px;
+			letter-spacing: -5px;
 			-webkit-font-smoothing: antialiased;
 			font-size: 4em;
 			line-height: 1;
+			border: 5px solid black;
+			text-align: center;
+			padding: 5px;
+			@include box-sizing(border-box);
 			@media (min-width: $widescreen){
 				font-size: 6em;
 			}
@@ -103,30 +113,75 @@
 		h2{
 			color: white;
 		}
-		p{
-			line-height: 1.7;
-			font-family: 'Maison', 'Inconsolata', 'Karla', 'Clan';
-			font-weight: normal;
-			-webkit-font-smoothing: antialiased;
-			a{
-				color: white;
-			}
-			@media (max-width: $phone){
-				font-size: 0.9em;
-			}
 
+		.intro-text{
+			width: 70%;
+			margin-left: 15%;
+			.thanks-container{
+				width: 100%;
+				text-align: center;
+				margin: 0;
+				h1.thanks{
+					font-family: 'Maison', 'Inconsolata', 'Karla', 'Clan', Helvetica, sans-serif;
+					font-weight: bold;
+					line-height: 1;
+					width: auto;
+					font-size: 2.7em;
+					letter-spacing: -1px;
+					margin-bottom: 40px;
+					margin-top: 10px;
+					background: $pink;
+					z-index: 1;
+				}
+			}
+			
+			h1{
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				margin-top: -4px;
+				position: relative;
+				z-index: 1;
+				&.sticky{
+					position: fixed;
+					z-index: 2;
+					@include transform(translateZ(0));
+					width: 70%;
+					left: 15%;
+					background: $pink;
+					top: 20px;
+				}
+			}
+			p{
+				line-height: 1.7;
+				letter-spacing: -1px;
+				font-family: 'Maison', 'Inconsolata', 'Karla', 'Clan';
+				font-weight: bold;
+				-webkit-font-smoothing: antialiased;
+				a{
+					color: black;
+					text-decoration: none;
+					border-bottom: 5px solid white;
+					&:hover{
+						border-bottom: 5px solid black;
+					}
+				}
+				@media (max-width: $phone){
+					font-size: 0.9em;
+				}
+			}
+			img{
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+			}
 		}
-		img{
-			max-width: 100%;
-			width: 100%;
-			height: auto;
-			margin: 0;
-			margin-top: 30px;
-			margin-bottom: 40px;
-		}
+		
 		.credits{
 			margin-top: 40px;
 			margin-bottom: 100px;
+			width: 70%;
+			margin-left: 15%;
 			p{
 				font-weight: lighter;
 				-webkit-font-smoothing: antialiased;
@@ -139,6 +194,12 @@
 						font-weight: lighter;
 					}
 				}
+			}
+			img{
+				max-width: 100%;
+				width: 100%;
+				height: auto;
+				margin: 0 0 50px 0;
 			}
 		}
 	}
