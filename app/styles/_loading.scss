@@ -5,7 +5,8 @@
 	top: 0;
 	left: 0;
 	z-index: 9999999999999;
-	background: url(../images/grid.jpg) no-repeat center center;
+	// background: url(../images/grid.jpg) no-repeat center center;
+	background: white;
 	background-size: cover;
 	color: white;
 	@include display(flex);

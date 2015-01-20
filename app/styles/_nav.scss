@@ -78,10 +78,10 @@
         padding: 15px 0;
       }
       &:hover{
-        background: white;
-        color: black;
+        background: $black;
+        color: white;
         a{
-          color: black;
+          color: white;
         }
       }
     }

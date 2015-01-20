@@ -4,10 +4,13 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-  background: url(../images/grid.jpg) no-repeat center center;
+  background: url(../images/grid2.jpg) no-repeat center center;
+  // background: white;
   background-size: cover;
 	overflow: hidden;
   z-index: 3;
+  cursor: none !important;
+  @include transform(translate3d(0,0,0));
 
   .background{
     position: absolute;
@@ -154,7 +157,7 @@
          }
         img{
           width: 100%;
-          box-shadow: 5px 5px 5px black;
+          box-shadow: 5px 5px 5px $black;
         }
         .download-text{
           @include transition(all .2s linear);
@@ -191,8 +194,9 @@
         width: auto;
         margin-left: 0;
         h1{
+          color: $pink;
           a{
-            color: $pink;
+            color: $black;
           }
         }
       }
@@ -257,9 +261,9 @@
           width: 100%;
           height: 100%;
           backface-visibility: hidden;
-          box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px $black;
           position: absolute;
-          border-radius: 10px;
+          border-radius: 5px;
           color: white;
           top: 0;
           left: 0;
@@ -279,12 +283,12 @@
             left: 0;
             width: 100%;
             min-height: 100%;
-            background-color: $whitetrans;
+            background-color: rgba(255,255,255,0.6);
             border-radius: 3px;
             @include user-select(none);
             a{
               i{
-                color: black;
+                color: $black;
                 font-size: 2em;
               }
             }
@@ -303,7 +307,7 @@
               text-transform: uppercase;
 
               font-family: 'Maison', 'Inconsolata', 'Clan', arial, sans-serif;
-              background: black;
+              background: $black;
               font-size: 1em;
               font-weight: bold;
               &.num-order{
@@ -329,7 +333,7 @@
     z-index: 9;
     text-align: center;
     h3{
-      color: white;
+      color: $black;
       font-size: 0.8em;
       font-family: 'Inconsolata';
       font-weight: normal;
@@ -341,9 +345,9 @@
 
   .current-song{
     position: absolute;
-    top: 10px;
+    z-index: 8;
+    top: 0;
     right: 20px;
-    z-index: 99;
     -webkit-font-smoothing: antialiased;
     width: auto;
     max-width: 25%;
@@ -354,8 +358,13 @@
     font-weight: normal;
 
     a{
-      color: white;
+      color: $black;
       text-decoration: none;
+      display: block;
+      padding: 5px 0;
+      &:hover{
+          color: gray;
+        }
       @include transition(all .2s linear);
       h3.change-song-titles{
         font-family: 'Inconsolata';
@@ -364,9 +373,6 @@
         @include transition(all .2s linear);
         span{
           margin: 0 5px;
-        }
-        &:hover{
-          color: gray;
         }
       }
     }

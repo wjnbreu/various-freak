@@ -1,43 +1,48 @@
-<section class="about-section">
+
+<section class="about-wrapper" id="about-wrapper">
 	<div class="exit" ng-click="goto('/player')" remove-animation></div>
-	<div class="about-intro">
-
-		<div class="intro-text">
-			<div class="top-bar"></div>
-			<img src="images/tokyo.jpg" alt="Tokyo skyline" />
-			<h1 waypoint-stick id="waypoint">どうもありがとうございます</h1>
-
-			<p>In 2014, <a href="http://www.redbullmusicacademy.com" target="self">Red Bull Music Academy</a> came to Tokyo, Japan. To hold an Academy in this country 
-			— the birthplace of so much influential music-making technology, and so many inspiring evocations of what the future should sound like — felt like joining the dots in more ways than one. But then, things do tend to come full circle, no matter what DAW you’re using. And the links tend
-			to get made no matter whether you’re lost in the loop on an SP1200, or joining <a href="http://www.redbullmusicacademy.com/people/mathew-jonson" target="self">Mathew Jonson</a>
-			— one of the RBMA’s studio mentors — in the amphitheatre-shaped arrangement of analogue machines that we dubbed “The Circle of Trust.”</p>
-
-			<p> At each edition of the Academy, a jaw-dropping array of musical legends join us to share their stories and sounds in the lecture hall. In Japan’s capital, those lecturers took us back to the source. <a href="http://www.redbullmusicacademy.com/magazine/ryoji-ikeda-film" target="self">Ryoji Ikeda</a> took us through his ethereal arrangements of primal white noise, reducing pure sine-waves to the tiniest blips. Meanwhile, Korg synth designer <a href="http://www.redbullmusicacademy.com/magazine/korg-2014-lecture" target="self">Hiroaki Nishijima</a> demonstrated unfiltered passion as he jammed on the MS-20, searching for the beauty in the circuits.</p>
-
-			<p>We love connections. The spirals that connect eras and cross genre boundaries. Many of the influences and techniques of the Academy’s lecturers tend to reverberate in the art of the 60 up and coming music makers who join us each year as participants. These young artists are invited, after a lengthy selection process, <a href="http://rbma2014participants.com/" target="self">from more than 30 countries</a>. Gathered together, they hone skills, meet and share ideas with their peers from the opposite end of the globe.</p>
-
-			<p>Our four-floor HQ in 2014 was <a href="http://www.redbullmusicacademy.com/magazine/academy-space-2014-film" target="self">refitted by architect Kengo Kuma</a>, using traditional Japanese materials, linking the heterogeneous, high-tech nature of the city with the simplicity and calm of the Japanese home. Indeed, the circular walk around the studio floor, ringed by engawa, was the best chance to actually miss who you had been looking for, while stumbling into new sonic adventures.</p>
-
-			<p>The tracks available on this site, many of them collaborations, are just a sampler of the music created by participants at the 2014 edition of the Red Bull Music Academy over four weeks. Listen carefully, and you might hear ricocheting echoes of 4 AM ramen bowls and games of table tennis. To all of those who contributed their stories, questions, waveforms and refracted light patterns, we simply say:</p>
-
-			<div class="thanks-container"><h1 class="thanks">arigatou gozaimasu.</h1></div>
-
-			<img src="images/mickey.jpg" alt="Mickey de Grand IV" />
-		</div>
+	<div class="top-bar"></div>
+	<div id="big-cursor" big-hand frame-id="about-wrapper"><img src="images/hand2.png" /></div>
+	<section class="about-section" id="about-section">
 		
-		<div class="credits">
-			<div ng-repeat="credit in disc1">
-				<p><strong>{{credit.order}}. {{credit.title}} – {{credit.artist}}</strong> / {{credit.credits}}</p>
+		<div class="about-intro">
+
+			<div class="intro-text">
+				<img src="images/tokyo.jpg" alt="Tokyo skyline" />
+				<h1 waypoint-stick id="waypoint">どうもありがとうございます</h1>
+
+				<p>In 2014, <a href="http://www.redbullmusicacademy.com" target="self">Red Bull Music Academy</a> came to Tokyo, Japan. To hold an Academy in this country 
+				— the birthplace of so much influential music-making technology, and so many inspiring evocations of what the future should sound like — felt like joining the dots in more ways than one. But then, things do tend to come full circle, no matter what DAW you’re using. And the links tend
+				to get made no matter whether you’re lost in the loop on an SP1200, or joining <a href="http://www.redbullmusicacademy.com/people/mathew-jonson" target="self">Mathew Jonson</a>
+				— one of the RBMA’s studio mentors — in the amphitheatre-shaped arrangement of analogue machines that we dubbed “The Circle of Trust.”</p>
+
+				<p> At each edition of the Academy, a jaw-dropping array of musical legends join us to share their stories and sounds in the lecture hall. In Japan’s capital, those lecturers took us back to the source. <a href="http://www.redbullmusicacademy.com/magazine/ryoji-ikeda-film" target="self">Ryoji Ikeda</a> took us through his ethereal arrangements of primal white noise, reducing pure sine-waves to the tiniest blips. Meanwhile, Korg synth designer <a href="http://www.redbullmusicacademy.com/magazine/korg-2014-lecture" target="self">Hiroaki Nishijima</a> demonstrated unfiltered passion as he jammed on the MS-20, searching for the beauty in the circuits.</p>
+
+				<p>We love connections. The spirals that connect eras and cross genre boundaries. Many of the influences and techniques of the Academy’s lecturers tend to reverberate in the art of the 60 up and coming music makers who join us each year as participants. These young artists are invited, after a lengthy selection process, <a href="http://rbma2014participants.com/" target="self">from more than 30 countries</a>. Gathered together, they hone skills, meet and share ideas with their peers from the opposite end of the globe.</p>
+
+				<p>Our four-floor HQ in 2014 was <a href="http://www.redbullmusicacademy.com/magazine/academy-space-2014-film" target="self">refitted by architect Kengo Kuma</a>, using traditional Japanese materials, linking the heterogeneous, high-tech nature of the city with the simplicity and calm of the Japanese home. Indeed, the circular walk around the studio floor, ringed by engawa, was the best chance to actually miss who you had been looking for, while stumbling into new sonic adventures.</p>
+
+				<p>The tracks available on this site, many of them collaborations, are just a sampler of the music created by participants at the 2014 edition of the Red Bull Music Academy over four weeks. Listen carefully, and you might hear ricocheting echoes of 4 AM ramen bowls and games of table tennis. To all of those who contributed their stories, questions, waveforms and refracted light patterns, we simply say:</p>
+
+				<div class="thanks-container"><h1 class="thanks">arigatou gozaimasu.</h1></div>
+
+				<img src="images/mickey.jpg" alt="Mickey de Grand IV" />
 			</div>
+			
+			<div class="credits">
+				<div ng-repeat="credit in disc1">
+					<p><strong>{{credit.order}}. {{credit.title}} – {{credit.artist}}</strong> / {{credit.credits}}</p>
+				</div>
 
-			<img src="images/zebra.jpg" alt="Zebra Katz" />
+				<img src="images/zebra.jpg" alt="Zebra Katz" />
 
-			<div ng-repeat="credit in disc2">
-				<p><strong>{{credit.order}}. {{credit.title}} – {{credit.artist}}</strong> / {{credit.credits}}</p>
+				<div ng-repeat="credit in disc2">
+					<p><strong>{{credit.order}}. {{credit.title}} – {{credit.artist}}</strong> / {{credit.credits}}</p>
+				</div>
+
+				<img src="images/collage.jpg" />
+
 			</div>
-
-			<img src="images/collage.jpg" />
-
-		</div>
-	</div> <!--end about intro-->
+		</div> <!--end about intro-->
+	</section>
 </section>

@@ -9,7 +9,7 @@
 
 <div class="main-frame" id="main-frame" mousewheel>
   <div ng-include="'partials/_nav.html'"></div>
-   <div id="big-cursor" big-hand><img src="images/hand.png" /></div>
+   <div id="big-cursor" big-hand frame-id="main-frame"><img src="images/hand2.png" /></div>
 
   
 
@@ -61,7 +61,7 @@
     <h3>Scroll or &#8596; and Drag a disc into the player</h3>
   </div>
 
-  <div class="current-song" ng-show="currentSong.title" current-song><a ng-href="{{currentSong.download}}" download>
+  <div class="current-song" ng-show="currentSong.title" current-song><a class="song-download" ng-href="{{currentSong.download}}" download>
     <h3 class="change-song-titles">
       <span class="fa fa-cloud-download"></span>{{currentSong.title}}
     </h3></a>
