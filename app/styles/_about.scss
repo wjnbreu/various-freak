@@ -131,8 +131,8 @@
 		}
 
 		.intro-text{
-			width: 70%;
-			margin-left: 15%;
+			width: 60%;
+			margin-left: 20%;
 			@media (min-width: $widescreen ){
 				width: 50%;
 				margin-left: 25%;
@@ -180,8 +180,8 @@
 					position: fixed;
 					z-index: 2;
 					@include transform(translate3d(0,0,0));
-					width: 70%;
-					left: 14.8%;
+					width: 59.5%;
+					left: 19.8%;
 					background: $pink;
 					top: 13px;
 					@media (min-width: $widescreen){
@@ -224,8 +224,8 @@
 		.credits{
 			margin-top: 40px;
 			margin-bottom: 100px;
-			width: 70%;
-			margin-left: 15%;
+			width: 60%;
+			margin-left: 20%;
 			@media (min-width: $widescreen){
 				width: 50%;
 				margin-left: 25%;
