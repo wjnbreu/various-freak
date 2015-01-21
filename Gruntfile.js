@@ -196,8 +196,8 @@ module.exports = function (grunt) {
           authKey: 'key1'
         },
         src: 'dist/',
-        // dest: 'prod/www/',
-        dest: 'stage/www/',
+        dest: 'prod/www/',
+        // dest: 'stage/www/',
         exclusions: 'dist/tmp/'
       }
     },
